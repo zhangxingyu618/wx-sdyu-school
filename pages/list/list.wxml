@@ -1,0 +1,45 @@
+<view class="grid col-2 padding-sm">
+	<view class="padding-sm" bindtap="go">
+		<view class="bg-gradual-red padding radius text-center shadow-blur">
+			<view class="text-lg">南苑餐厅</view>
+			<view class="margin-top-sm text-Abc">（一楼）</view>
+		</view>
+	</view>
+	<view class="padding-sm" >
+		<view class="bg-gradual-orange padding radius text-center shadow-blur">
+			<view class="text-lg">南苑餐厅</view>
+			<view class="margin-top-sm text-Abc">（二楼）</view>
+		</view>
+	</view>
+	<view class="padding-sm">
+		<view class="bg-gradual-green padding radius text-center shadow-blur">
+			<view class="text-lg">北苑餐厅</view>
+			<view class="margin-top-sm text-Abc">（一楼）</view>
+		</view>
+	</view>
+	<view class="padding-sm">
+		<view class="bg-gradual-purple padding radius text-center shadow-blur">
+			<view class="text-lg">北苑餐厅</view>
+			<view class="margin-top-sm text-Abc">（二楼）</view>
+		</view>
+	</view>
+	<view class="padding-sm">
+		<view class="bg-gradual-blue padding radius text-center shadow-blur">
+			<view class="text-lg">慢时光</view>
+			<view class="margin-top-sm text-Abc">（咖啡厅）</view>
+		</view>
+	</view>
+
+	<view class="padding-sm">
+		<view class="bg-gradual-pink padding radius text-center shadow-blur">
+			<view class="text-lg">山青超市</view>
+			<view class="margin-top-sm text-Abc">（零食杂货）</view>
+		</view>
+	</view>
+</view>
+
+
+
+<text class="cs">{{message}}</text>
+<button type="primary" bindtap="ck1" plain="true">按钮</button>
+<button bindtap="go">跳转</button>

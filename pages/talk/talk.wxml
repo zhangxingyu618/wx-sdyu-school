@@ -1,0 +1,77 @@
+<view class="cu-bar bg-white margin-top">
+	<view class="action">
+		<text class="cuIcon-title text-pink"></text> 资讯
+	</view>
+</view>
+
+<view class="cu-list grid col-5 no-border">
+	<view class="cu-item">
+		<view class="cuIcon-cardboardfill text-red">
+			<view class="cu-tag badge">
+				<block>99+</block>
+			</view>
+		</view>
+		<text>VR</text>
+	</view>
+	<view class="cu-item">
+		<view class="cuIcon-recordfill text-orange">
+			<view class="cu-tag badge"></view>
+		</view>
+		<text>录像</text>
+	</view>
+	<view class="cu-item">
+		<view class="cuIcon-picfill text-yellow">
+		</view>
+		<text>图像</text>
+	</view>
+	<view class="cu-item">
+		<view class="cuIcon-noticefill text-olive">
+			<view class="cu-tag badge">
+				<block>22</block>
+			</view>
+		</view>
+		<text>通知</text>
+	</view>
+	<view class="cu-item">
+		<view class="cuIcon-upstagefill text-cyan">
+		</view>
+		<text>排行榜</text>
+	</view>
+	<view class="cu-item">
+		<view class="cuIcon-clothesfill text-blue">
+		</view>
+		<text>皮肤</text>
+	</view>
+	<view class="cu-item">
+		<view class="cuIcon-discoverfill text-purple">
+		</view>
+		<text>发现</text>
+	</view>
+	<view class="cu-item">
+		<view class="cuIcon-questionfill text-mauve">
+		</view>
+		<text>帮助</text>
+	</view>
+	<view class="cu-item">
+		<view class="cuIcon-commandfill text-purple">
+		</view>
+		<text>问答</text>
+	</view>
+	<view class="cu-item">
+		<view class="cuIcon-brandfill text-mauve">
+		</view>
+		<text>版权</text>
+	</view>
+</view>
+
+
+<view v-show="false" class="cu-list grid" :class="['col-' + gridCol,gridBorder?'':'no-border']">
+	<view class="cu-item" v-for="(item,index) in cuIconList" :key="index" v-if="index<gridCol*2">
+		<view :class="['cuIcon-' + item.cuIcon,'text-' + item.color]">
+			<view class="cu-tag badge" v-if="item.badge!=0">
+				<block v-if="item.badge!=1">55</block>
+			</view>
+		</view>
+		<text>未读资讯</text>
+	</view>
+</view>
