@@ -6,3 +6,7 @@
 .log-item {
   margin: 10rpx;
 } */
+
+page{
+  height: 50%;
+}

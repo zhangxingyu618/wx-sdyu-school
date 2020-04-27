@@ -1,0 +1,23 @@
+<!--pages/talk/message/message.wxml-->
+
+<view class=" margin solid">
+
+    <view class="cu-bar bg-white margin-top">
+        <view class="action">
+            图片上传
+        </view>
+        <view class="action">
+            （目前仅支持上传一张照片）
+        </view>
+    </view>
+    <view class="cu-form-group">
+        <view class="grid col-4 grid-square flex-sub">
+            <view class="solids">
+                <text class='cuIcon-cameraadd'></text>
+            </view>
+        </view>
+    </view>
+    <view class="cu-form-group ">
+        <textarea maxlength="-1" :disabled="modalName!=null" placeholder="编辑动态内容"></textarea>
+    </view>
+</view>

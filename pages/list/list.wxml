@@ -1,45 +1,117 @@
+<view class="cu-bar bg-white">
+	<view class="action">
+		<text class="cuIcon-title text-green text-shadow"></text> 教务机构
+	</view>
+</view>
+
+<view class="cu-list grid col-5 no-border">
+	<view class="cu-item" bindtap="home">
+		<view class="cuIcon-home text-blue">
+		</view>
+		<text>学校官网</text>
+	</view>
+	<view class="cu-item" bindtap="jwchome">
+		<view class="cuIcon-calendar text-purple">
+		</view>
+		<text>教务处</text>
+	</view>
+	<view class="cu-item" bindtap="zshome">
+		<view class="cuIcon-new text-pink">
+		</view>
+		<text>招生信息</text>
+	</view>
+	<view class="cu-item" bindtap="jyhome">
+		<view class="cuIcon-command text-mauve">
+		</view>
+		<text>就业创业</text>
+	</view>
+	<view class="cu-item" bindtap="toSchool">
+		<view class="cuIcon-punch text-cyan">
+		</view>
+		<text>学校简介</text>
+	</view>
+</view>
+<view class="cu-bar bg-white">
+	<view class="action">
+		<text class="cuIcon-title text-orange text-shadow"></text> 教学服务
+	</view>
+</view>
+<view class="cu-list grid col-5 no-border">
+	<view class="cu-item" bindtap="service">
+		<view class="cuIcon-text text-red">
+		</view>
+		<text>课表查询</text>
+	</view>
+	<view class="cu-item" bindtap="service">
+		<view class="cuIcon-rank text-orange">
+		</view>
+		<text>成绩查询</text>
+	</view>
+	<view class="cu-item" bindtap="service">
+		<view class="cuIcon-form text-yellow">
+		</view>
+		<text>考试查询</text>
+	</view>
+	<view class="cu-item" bindtap="service">
+		<view class="cuIcon-selection text-green">
+		</view>
+		<text>自主选课</text>
+	</view>
+	<view class="cu-item" bindtap="library">
+		<view class="cuIcon-read text-olive">
+		</view>
+		<text>图书馆</text>
+	</view>
+</view>
+
+<view class="cu-bar bg-white">
+	<view class="action">
+		<text class="cuIcon-title text-pink text-shadow"></text> 吃喝玩乐
+	</view>
+</view>
+
 <view class="grid col-2 padding-sm">
-	<view class="padding-sm" bindtap="go">
+	<view class="padding-sm" bindtap="south1">
 		<view class="bg-gradual-red padding radius text-center shadow-blur">
 			<view class="text-lg">南苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（一楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm" >
+	<view class="padding-sm" bindtap="south2">
 		<view class="bg-gradual-orange padding radius text-center shadow-blur">
 			<view class="text-lg">南苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（二楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm">
+	<view class="padding-sm" bindtap="north1">
 		<view class="bg-gradual-green padding radius text-center shadow-blur">
 			<view class="text-lg">北苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（一楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm">
+	<view class="padding-sm" bindtap="north2">
 		<view class="bg-gradual-purple padding radius text-center shadow-blur">
 			<view class="text-lg">北苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（二楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm">
+	<view class="padding-sm" bindtap="snack">
 		<view class="bg-gradual-blue padding radius text-center shadow-blur">
-			<view class="text-lg">慢时光</view>
-			<view class="margin-top-sm text-Abc">（咖啡厅）</view>
+			<view class="text-lg">各种小吃</view>
+			<view class="margin-top-sm text-Abc">（快餐简餐）</view>
 		</view>
 	</view>
-
-	<view class="padding-sm">
+	<view class="padding-sm" bindtap="drink">
 		<view class="bg-gradual-pink padding radius text-center shadow-blur">
-			<view class="text-lg">山青超市</view>
-			<view class="margin-top-sm text-Abc">（零食杂货）</view>
+			<view class="text-lg">喝个够</view>
+			<view class="margin-top-sm text-Abc">（奶茶饮品）</view>
 		</view>
 	</view>
 </view>
 
 
 
-<text class="cs">{{message}}</text>
-<button type="primary" bindtap="ck1" plain="true">按钮</button>
-<button bindtap="go">跳转</button>
+<!-- <text class="cs" >{{message}}</text> -->
+
+<!-- <button type="primary" bindtap="ck1" plain="true">按钮</button>
+<button bindtap="go">跳转</button> -->

@@ -1,13 +1,57 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<!-- logo -->
+
+<image style="width: 700rpx; height: 160rpx; " src='https://file.moetu.org/images/2020/03/26/logoa32ec0682c464330.png'>
+</image>
+
+<view class="userinfo">
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </block>
+</view>
+
+<view class="cu-list menu sm-border margin-top">
+
+  <!-- <view class="cu-item arrow">
+    <view class="content">
+      <text class="cuIcon-profile text-green"></text>
+      <text class="text-xl text-bold">我的信息</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">修改资料</text>
+    </view>
+  </view> -->
+  <view class="cu-item arrow" bindtap="opinion">
+    <view class="content">
+      <text class="cuIcon-write text-green"></text>
+      <text class="text-xl text-bold">问题与反馈</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">联系我们</text>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="cu-item arrow">
+    <button open-type='share'class="share-button" style="width: 100%;">
+      <view class="content justify-center fl">
+        <text class="cuIcon-share text-green fl"></text>
+        <text class="text-xl text-bold fl">分享给好友</text>
+      </view>
+    </button>
+  </view>
+  <view class="cu-item arrow" bindtap="toSchool">
+    <view class="content">
+      <text class="cuIcon-punch text-green"></text>
+      <text class="text-xl text-bold">关于山青</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">了解山青</text>
+    </view>
+  </view>
+  <view class="cu-item arrow" bindtap="about">
+    <view class="content">
+      <text class="cuIcon-titles text-green"></text>
+      <text class="text-xl text-bold">关于我们</text>
+    </view>
   </view>
 </view>

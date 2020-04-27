@@ -1,0 +1,71 @@
+<!--轮播图-->
+<swiper class='lunbo' indicator-dots='true' autoplay='true' interval='4000'>
+	<swiper-item>
+		<image src='https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'></image>
+	</swiper-item>
+	<swiper-item>
+		<image src='https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'></image>
+	</swiper-item>
+	<swiper-item>
+		<image src='https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'></image>
+	</swiper-item>
+</swiper>
+<view>{{type}}</view>
+<!-- <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+	<swiper-item wx:for="{{4}}" wx:key>
+		<image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
+  </swiper-item>
+</swiper> -->
+
+<view class="cu-bar bg-white">
+	<view class="action">
+		<text class="cuIcon-title text-green text-shadow"></text>{{name}}详情
+	</view>
+</view>
+
+<view class="VerticalBox">
+	<scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}"
+		style="height:calc(100vh - 450rpx)">
+		<view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{wname}}" wx:key="id" bindtap='tabSelect'
+			data-id="{{index}}">
+			窗口 - {{item.wid}}
+		</view>
+	</scroll-view>
+
+	<scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 450rpx)"
+		scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+		<view class="padding-top padding-lr" wx:for="{{wname}}" wx:key="id" id="main-{{index}}">
+			<view class='cu-bar solid-bottom bg-white'>
+				<view class='action'>
+					<text class='cuIcon-title text-green text-shadow'></text> 窗口-{{item.wid}}({{item.name}})
+				</view>
+			</view>
+
+			<view wx:for="{{item.food}}" wx:key="id">
+				<view class="cu-list menu-avatar" id="1">
+					<view class="cu-item">
+						<!-- <view> -->
+							<image src="cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/timg.jpg" class="cu-avatar round lg"></image>
+						<!-- style="background-image:url(https://file.moetu.org/images/2020/03/27/timgc311cb1674a4fb47.th.jpg);"> -->
+						<!-- </view> -->
+						<view class="content">
+							<view class="text-grey text-fname">{{item.fname}}</view>
+							<view class="text-gray text-sm flex">
+								<text class="text-cut">{{item.remark}}</text>
+							</view>
+						</view>
+						<view class="action">
+							<view class="text-grey text-sm">价格：</view>
+							<view class='cu-tag line-green'>{{item.price}}元</view>
+							<!-- <view class="cu-tag radius">{{item.price}}元</view>  -->
+						</view>
+					</view>
+				</view>
+			</view>
+
+		</view>
+
+	</scroll-view>
+
+
+</view>

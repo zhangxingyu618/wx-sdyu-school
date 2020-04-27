@@ -1,4 +1,3 @@
-const util = require('../../utils/util.js')
 
 
 
@@ -8,36 +7,40 @@ Page({
     swiperList: [{
       id: 0,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+      url: 'https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'
     }, {
       id: 1,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+      url: 'https://file.moetu.org/images/2020/03/27/20200227banner24f8f944aebe2fdc7.jpg',
     }, {
       id: 2,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
+      url: 'https://file.moetu.org/images/2020/03/27/140dda59c53f47a48.png'
     }, {
       id: 3,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
+      url: 'https://file.moetu.org/images/2020/03/27/2792916b6872cf1a3.png'
     }, {
       id: 4,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
+      url: 'https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'
     }, {
       id: 5,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
+      url: 'https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'
     }, {
       id: 6,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
+      url: 'https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'
     }],
   },
   onLoad() {
     this.towerSwiper('swiperList');
     // 初始化towerSwiper 传已有的数组名即可
+    //显示当前页面可转发分享
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   },
 
   // cardSwiper

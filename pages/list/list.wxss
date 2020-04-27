@@ -1,4 +1,4 @@
 .cs {
   color: rgba(238, 13, 13, 0.945);
-  font-size: 70rpx
+  font-size: 70rpx;
 }

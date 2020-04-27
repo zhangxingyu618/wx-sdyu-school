@@ -1,15 +1,23 @@
 {
   "pages": [
-    "pages/south-1/south-1",
     "pages/index/index",
+    "pages/news/news",
     "pages/talk/talk",
+    "pages/discuss/discuss",
+    "pages/discuss/message/message",
     "pages/list/list",
-    "pages/mine/mine"
+    "pages/list/service/service",
+    "pages/dining/dining",
+    "pages/mine/mine",
+    "pages/mine/about/about",
+    "pages/mine/opinion/opinion",
+    "pages/mine/school/school"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "山东青年政治学院",
     "color": "#006835",
+    "backgroundColor": "#eeeeee",
     "navigationBarTextStyle": "black",
     "enablePullDownRefresh": true,
     "backgroundTextStyle":"dark"
@@ -25,10 +33,16 @@
       "iconPath":"images/home1.png",
       "selectedIconPath": "images/home2.png"
     },{
-      "text":"资讯",
+      "text":"资讯", 
       "pagePath":"pages/talk/talk",
       "iconPath": "images/talk1.png",
       "selectedIconPath": "images/talk2.png"
+    },
+    {
+      "text":"动态", 
+      "pagePath":"pages/discuss/discuss",
+      "iconPath": "images/star1.png",
+      "selectedIconPath": "images/star2.png"
     },
     {
       "text": "服务",

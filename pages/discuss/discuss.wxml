@@ -1,0 +1,95 @@
+<!--导航条-->
+<view class="bg-white nav flex">
+    <text wx:for="{{navbar}}" data-idx="{{index}}"
+        class="flex-sub text-center cu-item {{currentTab==index ?'text-green cur':''}}" wx:key="id"
+        bindtap="navbarTap">{{item}}</text>
+
+</view>
+
+<!--闲聊模块-->
+<view hidden="{{currentTab!==0}}">
+    <!-- 新建动态的按钮 -->
+    <view class="text-sl location" bindtap="add">
+        <text class="cuIcon-roundaddfill text-blue"></text>
+    </view>
+
+    <view class="cu-card dynamic solids-bottom" :class="isCard?'no-card':''">
+        <view class="cu-item shadow">
+            <view class="cu-list menu-avatar">
+                <view class="cu-item">
+                    <image class="cu-avatar round lg" src="{{userInfo.avatarUrl}}"></image>
+                    <view class="content flex-sub">
+                        <view>{{userInfo.nickName}}</view>
+                        <view class="text-gray text-sm flex justify-between">
+                            2020年4月1日
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="text-content">
+                生而为人，一定要善良，像关门轻一点，对服务员说谢谢，不评论别人喜欢的东西，借的东西一定要还，就像我对你的好，你要知道只是我愿意，不是我应该。
+            </view>
+            <view class="grid flex-sub padding-lr col-1 justify-center">
+                <!-- <view class="bg-img only-img"
+                    style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
+                </view> -->
+                <image class="" src="cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/shanghai.jpg"></image>
+            </view>
+            <!-- <view class="grid flex-sub padding-lr col-3 grid-square">
+                <view class="bg-img"
+                    style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
+                </view>
+                <view class="bg-img"
+                    style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
+                </view>
+                <view class="bg-img"
+                    style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
+                </view>
+            </view> -->
+            <view class="text-gray text-sm text-right padding">
+                <!-- <text class="cuIcon-attentionfill margin-lr-xs"></text> 10 -->
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
+                <text class="cuIcon-messagefill margin-lr-xs"></text> 30
+            </view>
+
+            <view class="cu-list menu-avatar comment solids-top">
+                <view class="cu-item">
+                    <image class="cu-avatar round" src="{{userInfo.avatarUrl}}"></image>
+
+                    <view class="content">
+                        <view class="text-grey">{{userInfo.nickName}}</view>
+                        <view class="text-gray text-content text-df">
+                            生而为人，怎敢不努力。
+                        </view>
+                        <view class=" flex justify-between">
+                            <view class="text-gray text-sm">2020年4月2日</view>
+                            <!-- <view>
+                                <text class="cuIcon-appreciatefill text-red"></text>
+                                <text class="cuIcon-messagefill text-gray margin-left-sm"></text>
+                            </view> -->
+                        </view>
+                    </view>
+                </view>
+
+
+
+            </view>
+        </view>
+    </view>
+
+    <view class="" >
+        下一条动态
+    </view>
+
+
+</view>
+
+<!--表白-->
+<view hidden="{{currentTab!==1}}">
+    表白模块
+</view>
+
+<!--求助-->
+<view hidden="{{currentTab!==2}}">
+    求助模块
+</view>

@@ -9,12 +9,6 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -27,7 +21,8 @@ Page({
       app.userInfoReadyCallback = res => {
         this.setData({
           userInfo: res.userInfo,
-          hasUserInfo: true
+          hasUserInfo: true,
+          
         })
       }
     } else {
@@ -50,5 +45,27 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  
+  //跳转关于反馈页面
+  opinion:function(e){  
+    wx.navigateTo({ url: "opinion/opinion" }),
+    this.setData({
+      // message: '跳转成功'
+    })    
+  },
+  //跳转关于山青院页面
+  toSchool:function(e){  
+    wx.navigateTo({ url: "school/school" }),
+    this.setData({
+      // message: '跳转成功'
+    })    
+  },
+  //跳转关于我们页面
+  about:function(e){  
+    wx.navigateTo({ url: "about/about" }),
+    this.setData({
+      // message: '跳转成功'
+    })    
+  },
 })

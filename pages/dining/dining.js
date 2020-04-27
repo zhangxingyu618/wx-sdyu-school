@@ -1,4 +1,5 @@
 const app = getApp()
+
 Page({
   data: {
     StatusBar: app.globalData.StatusBar,
@@ -8,22 +9,51 @@ Page({
     MainCur: 0,
     VerticalNavTop: 0,
     list: [],
-    load: true
+    load: true,
+    // type: "",
+    name:'',
+    wname: [],
+
   },
-  onLoad() {
+  onLoad(options) {
+    // 信息加载
     wx.showLoading({
       title: '加载中...',
       mask: true
     });
+    // 获取页面传值
+    this.setData({
+        name: options.name,
+      });
+      
+      // console.log(options.type)
+      // console.log("=================")
+      // console.log(options.name)
+    // 初始化云
+    wx.cloud.init()
+    // 创建数据库实例
+    const db = wx.cloud.database()
+    // 构造查询语句
+    // collection 方法获取一个数据集合的引用
+    // 用上一个页面传递过来的值
+    db.collection(options.type).get({
+      success: res => {
+        this.setData({
+          wname: res.data[0].newslist
+        })
+        // console.log(res)
+        // console.log("---------------")   
+      }
+
+    });
+
+
     let list = [{}];
     for (let i = 0; i < 26; i++) {
       list[i] = {};
       list[i].id = i;
-      list[i].name = String(i + 1);
+      // list[i].name = String(i + 1);
       // list[i].name = String.fromCharCode(65 + i);
-      list[i].food={};
-      
-
     }
     this.setData({
       list: list,
@@ -51,7 +81,8 @@ Page({
           size: true
         }, data => {
           list[i].top = tabHeight;
-          tabHeight = tabHeight + data.height;
+          let h = data ? data.height : 0;
+          tabHeight = tabHeight + h;
           list[i].bottom = tabHeight;
         }).exec();
       }

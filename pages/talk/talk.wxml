@@ -1,77 +1,40 @@
-<view class="cu-bar bg-white margin-top">
-	<view class="action">
-		<text class="cuIcon-title text-pink"></text> 资讯
-	</view>
+<!-- 地图模块 -->
+<view class="margin padding radius bg-olive shadow-blur" style=" height:100%;">
+	<map id="map" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="16"
+		style="width: 100%; height: 100%;"></map>
 </view>
 
-<view class="cu-list grid col-5 no-border">
-	<view class="cu-item">
-		<view class="cuIcon-cardboardfill text-red">
-			<view class="cu-tag badge">
-				<block>99+</block>
-			</view>
+<view class="cu-timeline">
+	<view class="cu-bar bg-white">
+		<view class='action'>
+			<text class='cuIcon-title text-blue text-shadow'></text>最新消息
 		</view>
-		<text>VR</text>
 	</view>
-	<view class="cu-item">
-		<view class="cuIcon-recordfill text-orange">
-			<view class="cu-tag badge"></view>
+	<view class="cu-item cur cuIcon-noticefill text-orange">
+		<view class="content bg-orange shadow-blur">
+			<text>24:00</text> 【济南市】您已到达经十东路31699号[ 山东青年政治学院 ]
 		</view>
-		<text>录像</text>
 	</view>
-	<view class="cu-item">
-		<view class="cuIcon-picfill text-yellow">
+	<view class="cu-item cur cuIcon-noticefill text-cyan">
+		<view class="content bg-cyan shadow-blur">
+			<text>22:22</text> 【山东】快件已到达济南市
 		</view>
-		<text>图像</text>
 	</view>
-	<view class="cu-item">
-		<view class="cuIcon-noticefill text-olive">
-			<view class="cu-tag badge">
-				<block>22</block>
-			</view>
+	<view class="cu-item cur cuIcon-noticefill text-blue">
+		<view class="content bg-blue shadow-blur">
+			<text>22:12</text> 【中国】您已到达山东省
 		</view>
-		<text>通知</text>
 	</view>
-	<view class="cu-item">
-		<view class="cuIcon-upstagefill text-cyan">
+	<view class="cu-item cur cuIcon-noticefill text-yellow">
+		<view class="content bg-yellow shadow-blur">
+			<text>22:02</text> 【地球】您已到达中国
 		</view>
-		<text>排行榜</text>
 	</view>
-	<view class="cu-item">
-		<view class="cuIcon-clothesfill text-blue">
+	<view class="cu-item cur cuIcon-noticefill text-green">
+		<view class="content bg-green shadow-blur">
+			<text>22:00</text> 【火星】您已到达地球
 		</view>
-		<text>皮肤</text>
 	</view>
-	<view class="cu-item">
-		<view class="cuIcon-discoverfill text-purple">
-		</view>
-		<text>发现</text>
-	</view>
-	<view class="cu-item">
-		<view class="cuIcon-questionfill text-mauve">
-		</view>
-		<text>帮助</text>
-	</view>
-	<view class="cu-item">
-		<view class="cuIcon-commandfill text-purple">
-		</view>
-		<text>问答</text>
-	</view>
-	<view class="cu-item">
-		<view class="cuIcon-brandfill text-mauve">
-		</view>
-		<text>版权</text>
-	</view>
-</view>
 
 
-<view v-show="false" class="cu-list grid" :class="['col-' + gridCol,gridBorder?'':'no-border']">
-	<view class="cu-item" v-for="(item,index) in cuIconList" :key="index" v-if="index<gridCol*2">
-		<view :class="['cuIcon-' + item.cuIcon,'text-' + item.color]">
-			<view class="cu-tag badge" v-if="item.badge!=0">
-				<block v-if="item.badge!=1">55</block>
-			</view>
-		</view>
-		<text>未读资讯</text>
-	</view>
 </view>

@@ -13,21 +13,60 @@
 	</swiper-item>
 </swiper> -->
 
+<!-- logo -->
+<image style="width: 700rpx; height: 160rpx; " src='https://file.moetu.org/images/2020/03/26/logoa32ec0682c464330.png'>
+</image>
 
-<swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
-	<swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+<swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
+	duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+	<swiper-item wx:for="{{swiperList}}" wx:key="id" class="{{cardCur==index?'cur':''}}">
 		<view class="swiper-item">
-			<image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+			<image src="{{item.url}}" wx:if="{{item.type=='image'}}"></image>
 			<!-- <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video> -->
 		</view>
 	</swiper-item>
 </swiper>
 
-<!-- logo -->
-<image style="width: 700rpx; height: 160rpx; " src='https://file.moetu.org/images/2020/03/26/logoa32ec0682c464330.png'></image>
 
-<view class="cu-bar bg-white margin-top">
+<view class="cu-bar bg-white">
 	<view class="action">
-		<text class="cuIcon-title text-pink"></text> 快捷导航
+		<text class="cuIcon-title text-green text-shadow"></text> 快捷导航
 	</view>
+</view>
+
+<view class="cu-timeline margin-right-sm margin-left-sm">
+	<view class="cu-time">3-30</view>
+	<view class="cu-item text-blue">
+		<view class="content">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-cyan">上午</view>
+				<view class="cu-tag line-cyan">10:00</view>
+			</view>
+			<view class="margin-top">山东青年政治学院，创建于1949年，是经国家教育部批准设立的公办全日制普通本科高校，学校是中国共产主义青年团命名的“全国团干部教育培训基地”。
+			</view>
+		</view>
+	</view>
+	<view class="cu-time">3-30</view>
+	<view class="cu-item  text-blue">
+		<view class="content">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-cyan">上午</view>
+				<view class="cu-tag line-cyan">10:00</view>
+			</view>
+			<view class="margin-top">山东青年政治学院，创建于1949年，是经国家教育部批准设立的公办全日制普通本科高校，学校是中国共产主义青年团命名的“全国团干部教育培训基地”。
+			</view>
+		</view>
+	</view>
+	<view class="cu-time">3-30</view>
+	<view class="cu-item  text-blue">
+		<view class="content">
+			<view class="cu-capsule radius">
+				<view class="cu-tag bg-cyan">上午</view>
+				<view class="cu-tag line-cyan">10:00</view>
+			</view>
+			<view class="margin-top">山东青年政治学院，创建于1949年，是经国家教育部批准设立的公办全日制普通本科高校，学校是中国共产主义青年团命名的“全国团干部教育培训基地”。
+			</view>
+		</view>
+	</view>
+
 </view>
