@@ -1,23 +1,31 @@
 <!--pages/talk/message/message.wxml-->
 
 <view class=" margin solid">
+    <form bindsubmit="Submit" class="padding " name="discuss">
+        <view class="cu-form-group ">
+            <textarea name="msg" maxlength="-1" :disabled="modalName!=null" placeholder="编辑动态内容"></textarea>
+        </view>
 
-    <view class="cu-bar bg-white margin-top">
-        <view class="action">
-            图片上传
-        </view>
-        <view class="action">
-            （目前仅支持上传一张照片）
-        </view>
-    </view>
-    <view class="cu-form-group">
-        <view class="grid col-4 grid-square flex-sub">
-            <view class="solids">
-                <text class='cuIcon-cameraadd'></text>
+        <view class="cu-bar bg-white margin-top">
+            <view class="action">
+                图片上传
+            </view>
+            <view class="action">
+                （目前仅支持上传一张照片）
             </view>
         </view>
-    </view>
-    <view class="cu-form-group ">
-        <textarea maxlength="-1" :disabled="modalName!=null" placeholder="编辑动态内容"></textarea>
-    </view>
+           
+        
+        <view class="cu-form-group" >
+            <view class="grid col-4 grid-square flex-sub">
+                
+                <image class="image" src="{{imgPath}}" mode='scaleToFill'></image>
+
+                <view class="solids" bindtap="selectImg">
+                    <text class='cuIcon-cameraadd'></text>
+                </view>
+            </view>
+        </view>
+        <button class="line-green round margin-top" formType="submit"><text class="cuIcon-roundcheck"></text>发表</button>
+    </form>
 </view>

@@ -113,6 +113,13 @@
 					"pathName": "pages/discuss/discuss",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/discuss/message/message",
+					"pathName": "pages/discuss/message/message",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

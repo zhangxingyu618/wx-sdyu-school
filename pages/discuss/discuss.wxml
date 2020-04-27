@@ -9,7 +9,7 @@
 <!--闲聊模块-->
 <view hidden="{{currentTab!==0}}">
     <!-- 新建动态的按钮 -->
-    <view class="text-sl location" bindtap="add">
+    <view class="text-xsl location radius shadow" bindtap="add">
         <text class="cuIcon-roundaddfill text-blue"></text>
     </view>
 

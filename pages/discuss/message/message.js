@@ -1,19 +1,118 @@
 // pages/talk/message/message.js
+var util = require('../../../utils/util.js');
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    imgPath: "",
+    fileID: "",
+    userInfo: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function () {
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+      })
+    } else if (this.data.canIUse) {
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+          })
+        }
+      })
+    }
   },
+
+  selectImg: function () {
+    var that = this;
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: function (res) {
+        //图片本地文件路径列表
+        var tempFilePaths = res.tempFilePaths;
+        // console.log(res);
+        that.setData({
+          imgPath: tempFilePaths[0]
+        })
+      }
+    })
+  },
+
+  Submit: function (e) {
+    var that = this;
+
+    wx.cloud.init();
+    const db = wx.cloud.database();
+    // console.log(e.detail.value);
+    var msg = e.detail.value.msg;
+    // if (msg != "") {
+    wx.showLoading({
+      title: '上传中',
+    })
+    wx.cloud.uploadFile({
+
+      cloudPath: 'discuss/' + (new Date()).valueOf() + '.png',
+      filePath: this.data.imgPath,
+      success: res => {
+        // console.log(res)
+        console.log(res)
+        console.log(this.data.imgPath)
+        this.setData({
+          fileID: res.fileID
+        })
+
+        // console.log(this.data.fileID) 
+
+
+        wx.hideLoading();
+        wx.showToast({
+          title: "上传成功",
+        })
+      },
+    })
+    // }
+    var name = this.data.userInfo.nickName;
+    var head = this.data.userInfo.avatarUrl;
+    var fileID = this.data.fileID;
+    db.collection('discuss').add({
+      data: {
+        head: head,
+        name: name,
+        fileID: fileID,
+        msg: msg,
+        time: util.formatTime(new Date),
+      },
+      success: function (res) {
+        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+        // console.log(res)
+      }
+    })
+  },
+
+
+
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
