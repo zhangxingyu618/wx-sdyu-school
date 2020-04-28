@@ -65,52 +65,74 @@ Page({
     const db = wx.cloud.database();
     // console.log(e.detail.value);
     var msg = e.detail.value.msg;
-    // if (msg != "") {
-    wx.showLoading({
-      title: '上传中',
-    })
-    wx.cloud.uploadFile({
+    if (msg!=""&&that.data.imgPath != "") {
+      wx.showLoading({
+        title: '图片上传中',
+      })
+      wx.cloud.uploadFile({
+        cloudPath: 'discuss/' + (new Date()).valueOf() + '.jpg',
+        filePath: this.data.imgPath,
+        success: function (res) {
+          // console.log(res)
+          that.setData({
+            fileID: res.fileID
+          })
+          // console.log(that.data.fileID)
 
-      cloudPath: 'discuss/' + (new Date()).valueOf() + '.png',
-      filePath: this.data.imgPath,
-      success: res => {
-        // console.log(res)
-        console.log(res)
-        console.log(this.data.imgPath)
-        this.setData({
-          fileID: res.fileID
-        })
+          var name = that.data.userInfo.nickName;
+          var head = that.data.userInfo.avatarUrl;
+          var fileID = that.data.fileID;
+          // console.log(this.data.fileID)
+          db.collection('discuss').add({
+            data: {
+              head: head,
+              name: name,
+              fileID: fileID,
+              msg: msg,
+              time: util.formatTime(new Date),
+            },
+            success: function (res) {
+              // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+              // console.log(res)
+            }
+          })
 
-        // console.log(this.data.fileID) 
-
-
-        wx.hideLoading();
-        wx.showToast({
-          title: "上传成功",
-        })
-      },
-    })
-    // }
-    var name = this.data.userInfo.nickName;
-    var head = this.data.userInfo.avatarUrl;
-    var fileID = this.data.fileID;
-    db.collection('discuss').add({
-      data: {
-        head: head,
-        name: name,
-        fileID: fileID,
-        msg: msg,
-        time: util.formatTime(new Date),
-      },
-      success: function (res) {
-        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-        // console.log(res)
-      }
-    })
+          wx.hideLoading();
+          wx.showToast({
+            title: "发表成功",
+          })
+        },
+      })
+    }else if(msg==""){
+      wx.showToast({
+        title: "动态内容不能为空哦！",
+        icon: 'none',
+      })
+    }else if(that.data.imgPath == ""){
+      
+      var name = that.data.userInfo.nickName;
+      var head = that.data.userInfo.avatarUrl;
+      var fileID = "";
+      // console.log(this.data.fileID)
+      db.collection('discuss').add({
+        data: {
+          head: head,
+          name: name,
+          fileID: fileID,
+          msg: msg,
+          time: util.formatTime(new Date),
+        },
+        success: function (res) {
+          wx.showToast({
+            title: "发表成功",
+          })
+          // wx.navigateBack({
+            
+          // })
+        }
+      })
+    }
   },
-
-
-
 
 
 

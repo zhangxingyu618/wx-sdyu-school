@@ -71,37 +71,37 @@
 </view>
 
 <view class="grid col-2 padding-sm">
-	<view class="padding-sm" bindtap="south1">
+	<view class="padding-sm" bindtap="south1" hover-class="animation-fade">
 		<view class="bg-gradual-red padding radius text-center shadow-blur">
 			<view class="text-lg">南苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（一楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm" bindtap="south2">
+	<view class="padding-sm" bindtap="south2" hover-class="animation-fade">
 		<view class="bg-gradual-orange padding radius text-center shadow-blur">
 			<view class="text-lg">南苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（二楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm" bindtap="north1">
+	<view class="padding-sm" bindtap="north1" hover-class="animation-fade">
 		<view class="bg-gradual-green padding radius text-center shadow-blur">
 			<view class="text-lg">北苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（一楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm" bindtap="north2">
+	<view class="padding-sm" bindtap="north2" hover-class="animation-fade">
 		<view class="bg-gradual-purple padding radius text-center shadow-blur">
 			<view class="text-lg">北苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（二楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm" bindtap="snack">
+	<view class="padding-sm" bindtap="snack" hover-class="animation-fade">
 		<view class="bg-gradual-blue padding radius text-center shadow-blur">
 			<view class="text-lg">各种小吃</view>
 			<view class="margin-top-sm text-Abc">（快餐简餐）</view>
 		</view>
 	</view>
-	<view class="padding-sm" bindtap="drink">
+	<view class="padding-sm" bindtap="drink" hover-class="animation-fade">
 		<view class="bg-gradual-pink padding radius text-center shadow-blur">
 			<view class="text-lg">喝个够</view>
 			<view class="margin-top-sm text-Abc">（奶茶饮品）</view>

@@ -8,9 +8,10 @@ Page({
   data: {
     navbar: ['闲聊', '表白', '求助'],
     currentTab: 0,
-    userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    discuss: {},
+    isShowLoadmore:false,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -18,31 +19,48 @@ Page({
   onLoad: function (options) {
     if (app.globalData.userInfo) {
       this.setData({
-        userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
+    }
+     else if (this.data.canIUse) {
       app.userInfoReadyCallback = res => {
         this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true,
-
+          hasUserInfo: true,    
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
+    } 
+    else {
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
           this.setData({
-            userInfo: res.userInfo,
             hasUserInfo: true
           })
         }
       })
     }
+    // this.getUserInfo();
+
+    // 获取数据库中的数据
+    wx.cloud.init()
+    const db = wx.cloud.database()
+    db.collection("discuss").get({
+      success: res => {
+        this.setData({
+          discuss: res.data.reverse()
+        })
+        // console.log(res.data)
+      }
+    });
+
+  },
+  // 登陆
+  getUserInfo: function (e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      hasUserInfo: true
+    })
   },
   // 分栏导航条
   navbarTap: function (e) {
@@ -68,8 +86,23 @@ Page({
         // message: '跳转成功'
       })
   },
-
-
+  // 页面刷新
+  refresh:function(){
+    this.onPullDownRefresh();
+  },
+  
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.onLoad()
+    setTimeout(function ()
+      {
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
+      }, 1500);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -98,18 +131,12 @@ Page({
 
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log("aaaaaaaaa")
   },
 
   /**

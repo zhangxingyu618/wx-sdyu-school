@@ -14,7 +14,7 @@
 </swiper> -->
 
 <!-- logo -->
-<image style="width: 700rpx; height: 160rpx; " src='https://file.moetu.org/images/2020/03/26/logoa32ec0682c464330.png'>
+<image style="width: 700rpx; height: 160rpx; " src='cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/index/logo1.jpg'>
 </image>
 
 <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"

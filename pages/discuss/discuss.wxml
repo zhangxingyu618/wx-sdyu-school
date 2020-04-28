@@ -1,61 +1,50 @@
-<!--导航条-->
-<view class="bg-white nav flex">
-    <text wx:for="{{navbar}}" data-idx="{{index}}"
-        class="flex-sub text-center cu-item {{currentTab==index ?'text-green cur':''}}" wx:key="id"
-        bindtap="navbarTap">{{item}}</text>
+<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 请先登录 </button>
+<block wx:else>
+    <!--导航条-->
+    <view class="bg-white nav flex">
+        <text wx:for="{{navbar}}" data-idx="{{index}}"
+            class="flex-sub text-center cu-item {{currentTab==index ?'text-green cur':''}}" wx:key="id"
+            bindtap="navbarTap">{{item}}</text>
 
-</view>
-
-<!--闲聊模块-->
-<view hidden="{{currentTab!==0}}">
-    <!-- 新建动态的按钮 -->
-    <view class="text-xsl location radius shadow" bindtap="add">
-        <text class="cuIcon-roundaddfill text-blue"></text>
     </view>
+    <!--闲聊模块-->
+    <view hidden="{{currentTab!==0}}">
+        <!-- 新建动态的按钮 -->
+        <view class="text-sl location-add radius text-cyan" hover-class="animation-scale-up" bindtap="add">
+            <text class="cuIcon-roundaddfill "></text>
+        </view>
+        <view class="text-sl location-refresh radius text-cyan" hover-class="animation-fade" bindtap="refresh">
+            <text class="cuIcon-refresh"></text>
+        </view>
 
-    <view class="cu-card dynamic solids-bottom" :class="isCard?'no-card':''">
-        <view class="cu-item shadow">
-            <view class="cu-list menu-avatar">
-                <view class="cu-item">
-                    <image class="cu-avatar round lg" src="{{userInfo.avatarUrl}}"></image>
-                    <view class="content flex-sub">
-                        <view>{{userInfo.nickName}}</view>
-                        <view class="text-gray text-sm flex justify-between">
-                            2020年4月1日
+        <view class="cu-card dynamic solids-bottom" :class="isCard?'no-card':''" wx:for="{{discuss}}" wx:key="id">
+            <view class="cu-item shadow">
+                <view class="cu-list menu-avatar">
+                    <view class="cu-item">
+                        <image class="cu-avatar round lg" src="{{item.head}}"></image>
+                        <view class="content flex-sub">
+                            <view>{{item.name}}</view>
+                            <view class="text-gray text-sm flex justify-between">
+                                {{item.time}}
+                            </view>
                         </view>
                     </view>
                 </view>
-            </view>
-            <view class="text-content">
-                生而为人，一定要善良，像关门轻一点，对服务员说谢谢，不评论别人喜欢的东西，借的东西一定要还，就像我对你的好，你要知道只是我愿意，不是我应该。
-            </view>
-            <view class="grid flex-sub padding-lr col-1 justify-center">
-                <!-- <view class="bg-img only-img"
-                    style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
-                </view> -->
-                <image class="" src="cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/shanghai.jpg"></image>
-            </view>
-            <!-- <view class="grid flex-sub padding-lr col-3 grid-square">
-                <view class="bg-img"
-                    style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
+                <view class="text-content">
+                    {{item.msg}}
                 </view>
-                <view class="bg-img"
-                    style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
+                <view wx:if="{{item.fileID!=''}}" class="grid flex-sub justify-center">
+                    <image class="" src="{{item.fileID}}" mode="aspectFill"></image>
                 </view>
-                <view class="bg-img"
-                    style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg);">
-                </view>
-            </view> -->
-            <view class="text-gray text-sm text-right padding">
-                <!-- <text class="cuIcon-attentionfill margin-lr-xs"></text> 10 -->
+                <!-- <view class="text-gray text-sm text-right padding-left padding-right">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
                 <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
                 <text class="cuIcon-messagefill margin-lr-xs"></text> 30
-            </view>
-
-            <view class="cu-list menu-avatar comment solids-top">
+            </view> -->
+                <!-- 评论 -->
+                <!-- <view class="cu-list menu-avatar comment solids-top">
                 <view class="cu-item">
                     <image class="cu-avatar round" src="{{userInfo.avatarUrl}}"></image>
-
                     <view class="content">
                         <view class="text-grey">{{userInfo.nickName}}</view>
                         <view class="text-gray text-content text-df">
@@ -63,33 +52,28 @@
                         </view>
                         <view class=" flex justify-between">
                             <view class="text-gray text-sm">2020年4月2日</view>
-                            <!-- <view>
-                                <text class="cuIcon-appreciatefill text-red"></text>
-                                <text class="cuIcon-messagefill text-gray margin-left-sm"></text>
-                            </view> -->
                         </view>
                     </view>
                 </view>
-
-
+            </view> -->
 
             </view>
         </view>
+
+
+
+        <view class="cu-load bg-gray loading" hidden='{{isShowLoadmore}}'> </view>
+        <view class="cu-load bg-gray over" hidden='{{!isShowLoadmore}}'> </view>
+
     </view>
 
-    <view class="" >
-        下一条动态
+    <!--表白-->
+    <view hidden="{{currentTab!==1}}">
+        表白模块
     </view>
 
-
-</view>
-
-<!--表白-->
-<view hidden="{{currentTab!==1}}">
-    表白模块
-</view>
-
-<!--求助-->
-<view hidden="{{currentTab!==2}}">
-    求助模块
-</view>
+    <!--求助-->
+    <view hidden="{{currentTab!==2}}">
+        求助模块
+    </view>
+</block>
