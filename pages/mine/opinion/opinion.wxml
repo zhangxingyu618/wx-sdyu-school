@@ -12,7 +12,7 @@
 
   <form bindsubmit="Submit" class="padding padding " name="opinion">
     <view class="cu-form-group margin-top solid">
-      <textarea name="msg" maxlength="-1" placeholder="请对本程序提出您宝贵的意见！"></textarea>
+      <textarea name="msg" maxlength="-1" placeholder="请对本程序提出您宝贵的意见！" focus="ture"></textarea>
     </view>
     <view class="title margin-top">您的联系方式</view>
     <view class="cu-form-group solid">

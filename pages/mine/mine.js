@@ -1,4 +1,3 @@
-
 //获取应用实例
 const app = getApp()
 
@@ -21,7 +20,7 @@ Page({
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true,
-          
+
         })
       }
     } else {
@@ -45,26 +44,32 @@ Page({
       hasUserInfo: true
     })
   },
-  
+
   //跳转关于反馈页面
-  opinion:function(e){  
-    wx.navigateTo({ url: "opinion/opinion" }),
-    this.setData({
-      // message: '跳转成功'
-    })    
+  opinion: function (e) {
+    wx.navigateTo({
+        url: "opinion/opinion"
+      }),
+      this.setData({
+        // message: '跳转成功'
+      })
   },
   //跳转关于山青院页面
-  toSchool:function(e){  
-    wx.navigateTo({ url: "school/school" }),
-    this.setData({
-      // message: '跳转成功'
-    })    
+  toSchool: function (e) {
+    wx.navigateTo({
+        url: "school/school"
+      }),
+      this.setData({
+        // message: '跳转成功'
+      })
   },
   //跳转关于我们页面
-  about:function(e){  
-    wx.navigateTo({ url: "about/about" }),
-    this.setData({
-      // message: '跳转成功'
-    })    
+  about: function (e) {
+    wx.navigateTo({
+        url: "about/about"
+      }),
+      this.setData({
+        // message: '跳转成功'
+      })
   },
 })

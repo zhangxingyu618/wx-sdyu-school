@@ -6,8 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navbar: ['闲聊', '表白', '求助'],
-    currentTab: 0,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     discuss: {},
@@ -62,15 +60,9 @@ Page({
       hasUserInfo: true
     })
   },
-  // 分栏导航条
-  navbarTap: function (e) {
-    this.setData({
-      currentTab: e.currentTarget.dataset.idx
-    })
-  },
   // 获取信息
   getUserInfo: function (e) {
-    console.log(e)
+    // console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -90,10 +82,7 @@ Page({
   refresh:function(){
     this.onPullDownRefresh();
   },
-  
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
+    // 页面相关事件处理函数--监听用户下拉动作
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //在标题栏中显示加载
     this.onLoad()
@@ -102,6 +91,13 @@ Page({
         wx.hideNavigationBarLoading() //完成停止加载
         wx.stopPullDownRefresh() //停止下拉刷新
       }, 1500);
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    console.log("aaaaaaaaa")
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -132,12 +128,7 @@ Page({
   },
 
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    console.log("aaaaaaaaa")
-  },
+  
 
   /**
    * 用户点击右上角分享

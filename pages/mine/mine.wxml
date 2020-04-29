@@ -32,7 +32,7 @@
     </view>
   </view>
   <view class="cu-item arrow">
-    <button open-type='share'class="share-button" style="width: 100%;">
+    <button open-type='share' class="share-button" style="width: 100%;">
       <view class="content justify-center fl">
         <text class="cuIcon-share text-green fl"></text>
         <text class="text-xl text-bold fl">分享给好友</text>

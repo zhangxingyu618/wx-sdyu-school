@@ -3,7 +3,7 @@
 <view class=" margin solid ">
     <form bindsubmit="Submit" class="padding" name="discuss">
         <view class="cu-form-group ">
-            <textarea name="msg" maxlength="-1" :disabled="modalName!=null" placeholder="编辑动态内容"></textarea>
+            <textarea name="msg" maxlength="-1" class="text-lg" placeholder-class="text-lg"  placeholder="编辑动态内容" auto-height="ture" focus="ture"></textarea>
         </view>
 
         <view class="cu-bar bg-white margin-top">

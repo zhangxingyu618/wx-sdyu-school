@@ -26,7 +26,7 @@ Page({
       wx.showModal({
         title: '提示',
         content: '请输入完整信息！',
-        showCancel:false,
+        showCancel: false,
         // success: function (res) {
         //   if (res.confirm) {
         //     console.log('用户点击确定')
@@ -37,21 +37,21 @@ Page({
       wx.showModal({
         title: '提示',
         content: '感谢您的反馈及意见！',
-        showCancel:false, 
+        showCancel: false,
       })
       // console.log(e.detail.value)
       // console.log(msg)
       // console.log(qq)
-      
+
       wx.cloud.init();
       const db = wx.cloud.database();
       db.collection('opinion').add({
         data: {
-          qq:qq,
-          msg:msg,
+          qq: qq,
+          msg: msg,
           time: util.formatTime(new Date),
         },
-        success: function(res) {
+        success: function (res) {
           // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
           // console.log(res)
         }

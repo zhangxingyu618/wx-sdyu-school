@@ -13,6 +13,11 @@
     "pages/mine/opinion/opinion",
     "pages/mine/school/school"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "小程序将获取您的当前地理位置"
+    }
+  },
   "window": {
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "山东青年政治学院",

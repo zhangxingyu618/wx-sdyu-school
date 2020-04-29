@@ -1,5 +1,6 @@
 {
   "usingComponents": {},
   "navigationBarTitleText":"校友动态",
+  "navigationBarBackgroundColor": "#E8F4D9",
   "onReachBottomDistance":10
 }

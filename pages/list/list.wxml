@@ -108,10 +108,3 @@
 		</view>
 	</view>
 </view>
-
-
-
-<!-- <text class="cs" >{{message}}</text> -->
-
-<!-- <button type="primary" bindtap="ck1" plain="true">按钮</button>
-<button bindtap="go">跳转</button> -->

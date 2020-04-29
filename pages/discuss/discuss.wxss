@@ -12,3 +12,13 @@
     right: 5%;
     z-index: 999;
 }
+.animation-rotate {
+    animation-name: rotate
+}
+@keyframes rotate {
+    0% {transform: rotate(0deg);}
+  20% {transform: rotate(5deg);}
+  40% {transform: rotate(10deg);}
+  60% {transform: rotate(-5deg);}
+  80% {transform: rotate(-10deg);}
+}

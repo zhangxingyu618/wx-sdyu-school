@@ -1,48 +1,47 @@
 <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 请先登录 </button>
 <block wx:else>
-    <!--导航条-->
-    <view class="bg-white nav flex">
-        <text wx:for="{{navbar}}" data-idx="{{index}}"
-            class="flex-sub text-center cu-item {{currentTab==index ?'text-green cur':''}}" wx:key="id"
-            bindtap="navbarTap">{{item}}</text>
 
+    <view class="cu-bar light bg-olive">
+        <view class="action">
+            <text class="cuIcon-notice text-green text-shadow"></text>
+            <text class=" text-green text-shadow">请文明发言（可闲聊、表白、寻物、求助）</text>
+        </view>
     </view>
-    <!--闲聊模块-->
-    <view hidden="{{currentTab!==0}}">
-        <!-- 新建动态的按钮 -->
-        <view class="text-sl location-add radius text-cyan" hover-class="animation-scale-up" bindtap="add">
-            <text class="cuIcon-roundaddfill "></text>
-        </view>
-        <view class="text-sl location-refresh radius text-cyan" hover-class="animation-fade" bindtap="refresh">
-            <text class="cuIcon-refresh"></text>
-        </view>
+    <!--动态模块-->
+    <!-- 新建动态的按钮 -->
+    <view class="text-sl location-refresh radius text-grey" hover-class="animation-fade" bindtap="refresh">
+        <text class="cuIcon-refresh"></text>
+    </view>
+    <view class="text-sl location-add radius text-grey" hover-class="animation-scale-up" bindtap="add">
+        <text class="cuIcon-roundaddfill "></text>
+    </view>
 
-        <view class="cu-card dynamic solids-bottom" :class="isCard?'no-card':''" wx:for="{{discuss}}" wx:key="id">
-            <view class="cu-item shadow">
-                <view class="cu-list menu-avatar">
-                    <view class="cu-item">
-                        <image class="cu-avatar round lg" src="{{item.head}}"></image>
-                        <view class="content flex-sub">
-                            <view>{{item.name}}</view>
-                            <view class="text-gray text-sm flex justify-between">
-                                {{item.time}}
-                            </view>
+    <view class="cu-card dynamic light bg-olive" wx:for="{{discuss}}" wx:key="id">
+        <view class="cu-item shadow solids bg-gray padding-bottom" hover-class="animation-rotate">
+            <view class="cu-list menu-avatar">
+                <view class="cu-item">
+                    <image class="cu-avatar round lg" src="{{item.head}}"></image>
+                    <view class="content flex-sub">
+                        <view>{{item.name}}</view>
+                        <view class="text-gray text-sm flex justify-between">
+                            {{item.time}}
                         </view>
                     </view>
                 </view>
-                <view class="text-content">
-                    {{item.msg}}
-                </view>
-                <view wx:if="{{item.fileID!=''}}" class="grid flex-sub justify-center">
-                    <image class="" src="{{item.fileID}}" mode="aspectFill"></image>
-                </view>
-                <!-- <view class="text-gray text-sm text-right padding-left padding-right">
+            </view>
+            <view class="text-content">
+                {{item.msg}}
+            </view>
+            <view wx:if="{{item.fileID!=''}}" class="grid flex-sub justify-center">
+                <image class=" radius" src="{{item.fileID}}" mode="aspectFill"></image>
+            </view>
+            <!-- <view class="text-gray text-sm text-right padding-left padding-right">
                 <text class="cuIcon-attentionfill margin-lr-xs"></text> 10
                 <text class="cuIcon-appreciatefill margin-lr-xs"></text> 20
                 <text class="cuIcon-messagefill margin-lr-xs"></text> 30
             </view> -->
-                <!-- 评论 -->
-                <!-- <view class="cu-list menu-avatar comment solids-top">
+            <!-- 评论 -->
+            <!-- <view class="cu-list menu-avatar comment solids-top">
                 <view class="cu-item">
                     <image class="cu-avatar round" src="{{userInfo.avatarUrl}}"></image>
                     <view class="content">
@@ -57,23 +56,11 @@
                 </view>
             </view> -->
 
-            </view>
         </view>
-
-
-
-        <view class="cu-load bg-gray loading" hidden='{{isShowLoadmore}}'> </view>
-        <view class="cu-load bg-gray over" hidden='{{!isShowLoadmore}}'> </view>
-
     </view>
 
-    <!--表白-->
-    <view hidden="{{currentTab!==1}}">
-        表白模块
-    </view>
 
-    <!--求助-->
-    <view hidden="{{currentTab!==2}}">
-        求助模块
-    </view>
+    <view class="cu-load light bg-olive loading" hidden='{{isShowLoadmore}}'> </view>
+    <view class="cu-load light bg-olive over" hidden='{{!isShowLoadmore}}'> </view>
+
 </block>

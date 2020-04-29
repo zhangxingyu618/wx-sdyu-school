@@ -1,20 +1,8 @@
 <!--index.wxml-->
 
-<!--轮播图-->
-<!-- <swiper class='lunbo' indicator-dots='true' autoplay='true' interval='3500'>
-	<swiper-item>
-		<image src='https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'></image>
-	</swiper-item>
-	<swiper-item>
-		<image src='https://file.moetu.org/images/2020/03/26/b34eea31df82264db.png'></image>
-	</swiper-item>
-	<swiper-item>
-		<image src='https://file.moetu.org/images/2020/03/26/c0ffa844db7bed791.jpg'></image>
-	</swiper-item>
-</swiper> -->
-
 <!-- logo -->
-<image style="width: 700rpx; height: 160rpx; " src='cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/index/logo1.jpg'>
+<image style="width: 700rpx; height: 160rpx; "
+	src='cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/index/logo1.jpg'>
 </image>
 
 <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000"
@@ -30,11 +18,41 @@
 
 <view class="cu-bar bg-white">
 	<view class="action">
-		<text class="cuIcon-title text-green text-shadow"></text> 快捷导航
+		<text class="cuIcon-locationfill text-green text-shadow"></text>
+		<text class=" text-green text-shadow">【{{c}}】{{tq}} （ {{t}} ）</text>
 	</view>
 </view>
 
-<view class="cu-timeline margin-right-sm margin-left-sm">
+
+
+<view class="cu-card case">
+	<view class="cu-item shadow bg-gray solid padding">
+		<view class="cu-tag light bg-blue round">每日一图</view>
+		<view class="image padding-top">
+			<image class="radius" src="{{msg.img_url}}" mode="widthFix"></image>
+			<view class="cu-bar bg-shadeBottom radius">
+				<text wx:if="{{msg.img_title!=''}}" class="text-cut">{{msg.img_title}}</text>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="cu-card case">
+	<view class="cu-item shadow bg-gray solid padding">
+		<view class="cu-tag light bg-cyan round ">每日一句</view>
+		<view class="padding-top text-xl">{{msg.yiyu}}</view>
+	</view>
+</view>
+
+<view class="cu-card case">
+	<view class="cu-item shadow bg-gray solid padding">
+		<view class="cu-tag light bg-green round ">微小说</view>
+		<view class="padding-top text-xl">{{msg.wxs}}</view>
+	</view>
+</view>
+
+
+<!-- <view class="cu-timeline margin-right-sm margin-left-sm">
 	<view class="cu-time">3-30</view>
 	<view class="cu-item text-blue">
 		<view class="content">
@@ -68,5 +86,4 @@
 			</view>
 		</view>
 	</view>
-
-</view>
+</view> -->

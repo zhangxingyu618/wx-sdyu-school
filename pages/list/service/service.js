@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    type:""
+    type: ""
   },
 
   /**
@@ -17,11 +17,11 @@ Page({
       type: options.type,
     });
     console.log(options.type)
-   
+
     wx.showModal({
       title: '提示',
       content: '因为是测试，该小程序是个人项目，暂不支持访问',
-      showCancel:false, 
+      showCancel: false,
     })
   },
 
