@@ -12,24 +12,13 @@
 </view>
 
 <view class="cu-list menu sm-border margin-top">
-
-  <!-- <view class="cu-item arrow">
-    <view class="content">
-      <text class="cuIcon-profile text-green"></text>
-      <text class="text-xl text-bold">我的信息</text>
-    </view>
-    <view class="action">
-      <text class="text-grey text-sm">修改资料</text>
-    </view>
-  </view> -->
-  <view class="cu-item arrow" bindtap="opinion">
-    <view class="content">
-      <text class="cuIcon-write text-green"></text>
-      <text class="text-xl text-bold">问题与反馈</text>
-    </view>
-    <view class="action">
-      <text class="text-grey text-sm">联系我们</text>
-    </view>
+  <view class="cu-item arrow">
+    <button open-type='feedback' class="share-button" style="width: 100%;">
+      <view class="content justify-center fl">
+        <text class="cuIcon-write text-green fl"></text>
+        <text class="text-xl text-bold fl">问题与反馈</text>
+      </view>
+    </button>
   </view>
   <view class="cu-item arrow">
     <button open-type='share' class="share-button" style="width: 100%;">
@@ -52,6 +41,9 @@
     <view class="content">
       <text class="cuIcon-titles text-green"></text>
       <text class="text-xl text-bold">关于我们</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">联系我们</text>
     </view>
   </view>
 </view>

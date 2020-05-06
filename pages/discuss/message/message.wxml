@@ -1,9 +1,14 @@
 <!--pages/talk/message/message.wxml-->
-
 <view class=" margin solid ">
+    <view class="cu-bar bg-white flex justify-center">
+        <view class="action">
+            <text class="cuIcon-write text-green text-shadow"></text>
+            <text class=" text-green text-shadow">编辑动态</text>
+        </view>
+    </view>
     <form bindsubmit="Submit" class="padding" name="discuss">
         <view class="cu-form-group ">
-            <textarea name="msg" maxlength="-1" class="text-lg" placeholder-class="text-lg"  placeholder="编辑动态内容" auto-height="ture" focus="ture"></textarea>
+            <textarea name="msg" maxlength="300" class="text-lg" placeholder-class="text-lg"  placeholder="编辑动态内容" auto-height="ture" focus="ture"></textarea>
         </view>
 
         <view class="cu-bar bg-white margin-top">
@@ -15,7 +20,6 @@
             </view>
         </view>
            
-        
         <view class="cu-form-group" >
             <view class="grid col-4 grid-square flex-sub">
                 <image  wx:if="{{imgPath!=''}}" class="image" src="{{imgPath}}" mode="aspectFill" ></image>

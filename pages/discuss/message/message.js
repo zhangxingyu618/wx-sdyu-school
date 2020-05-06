@@ -2,7 +2,6 @@
 var util = require('../../../utils/util.js');
 const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -40,7 +39,7 @@ Page({
       })
     }
   },
-
+  //选择图片
   selectImg: function () {
     var that = this;
     wx.chooseImage({
@@ -57,7 +56,7 @@ Page({
       }
     })
   },
-
+  //发表按钮
   Submit: function (e) {
     var that = this;
 
@@ -65,7 +64,7 @@ Page({
     const db = wx.cloud.database();
     // console.log(e.detail.value);
     var msg = e.detail.value.msg;
-    if (msg!=""&&that.data.imgPath != "") {
+    if (msg != "" && that.data.imgPath != "") {
       wx.showLoading({
         title: '图片上传中',
       })
@@ -90,26 +89,35 @@ Page({
               fileID: fileID,
               msg: msg,
               time: util.formatTime(new Date),
+              fileName: (new Date()).valueOf()
             },
             success: function (res) {
-              // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
               // console.log(res)
             }
           })
-
           wx.hideLoading();
           wx.showToast({
             title: "发表成功",
           })
+
+          // 返回上一页面并刷新
+          var pages = getCurrentPages(); //当前页面栈
+          if (pages.length > 1) {
+            var beforePage = pages[pages.length - 2]; //获取上一个页面实例对象
+            beforePage.refresh(); //触发父页面中的方法
+          }
+          wx.navigateBack({
+            delta: 1
+          })
+
         },
       })
-    }else if(msg==""){
+    } else if (msg == "") {
       wx.showToast({
         title: "动态内容不能为空哦！",
         icon: 'none',
       })
-    }else if(that.data.imgPath == ""){
-      
+    } else if (that.data.imgPath == "") {
       var name = that.data.userInfo.nickName;
       var head = that.data.userInfo.avatarUrl;
       var fileID = "";
@@ -121,14 +129,22 @@ Page({
           fileID: fileID,
           msg: msg,
           time: util.formatTime(new Date),
+          fileName: (new Date()).valueOf()
         },
         success: function (res) {
           wx.showToast({
             title: "发表成功",
           })
-          // wx.navigateBack({
-            
-          // })
+          // 返回上一页面并刷新
+          var pages = getCurrentPages(); //当前页面栈
+          if (pages.length > 1) {
+            var beforePage = pages[pages.length - 2]; //获取上一个页面实例对象
+            beforePage.refresh(); //触发父页面中的方法
+          }
+          wx.navigateBack({
+            delta: 1
+          })
+
         }
       })
     }

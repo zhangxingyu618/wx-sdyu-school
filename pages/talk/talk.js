@@ -4,7 +4,6 @@ Page({
     longitude: 117.23906,
     markers: [{
       id: 1,
-      // iconPath: "../../images/location.png",
       latitude: 36.67149,
       longitude: 117.23906,
     }],
@@ -14,47 +13,36 @@ Page({
   onLoad: function () {
     var that = this;
     wx.request({
-      url: 'https://meiriyikan.cn/api/json.php',
-      method: 'POST', //方法分GET和POST
-      header: { //定死的格式，不用改，照敲就好
+      url: 'https://api.apiopen.top/getWangYiNews',
+      // method: 'POST', //分GET和POST
+      header: {
         'Content-Type': 'application/json'
       },
-      data: {},
+      data: {
+        page: "1",
+        count: "10",
+      },
       success: function (res) {
-        // console.log(res);
-        // console.log(res.data.news)
+        // console.log(res.data.result)
         that.setData({
-          news: res.data.news,
+          news: res.data.result,
         })
       },
       fail: function (res) {
-        console.log('.........fail..........');
+        console.log('.........接口调用失败..........');
       }
     })
 
   },
-
-  onReady: function () {
-
+  // 点击图片放大
+  previewImg: function (e) {
+    // console.log(e.currentTarget.dataset.src);
+    var src = e.currentTarget.dataset.src;
+    wx.previewImage({
+      current: src, //当前图片地址
+      urls: [src], //所有要预览的图片的地址集合 数组形式
+    })
   },
-  //定位方法
-  // location: function () {
-  //   var that = this;
-  //   wx.getLocation({
-  //     type: "wgs84",
-  //     success: function (res) {
-  //       var latitude = res.latitude;
-  //       var longitude = res.longitude;
-  //       //console.log(res.latitude);
-  //       that.setData({
-  //         latitude: res.latitude,
-  //         longitude: res.longitude,
-  //         markers: [{
-  //           latitude: res.latitude,
-  //           longitude: res.longitude
-  //         }]
-  //       })
-  //     }
-  //   })
-  // }
+
+  onReady: function () {},
 })

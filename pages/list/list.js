@@ -1,60 +1,31 @@
 Page({
   data: {
-    message: "Hello Word",
 
   },
 
-  // getTime: function (e) {
-  //   this.setData({
-  //     message: util.formatTime(new Date)
-  //   })    
-  // },
-  home: function (e) {
-    // 跳转并传值
-    wx.navigateTo({
-      url: "service/service?type=https://www.sdyu.edu.cn"
-    })
-  },
-  jwchome: function (e) {
-    // 跳转并传值
-    wx.navigateTo({
-      url: "service/service?type=https://jwc.sdyu.edu.cn"
-    })
-  },
-  zshome: function (e) {
-    // 跳转并传值
-    wx.navigateTo({
-      url: "service/service?type=https://zsb.sdyu.edu.cn"
-    })
-  },
-  jyhome: function (e) {
-    // 跳转并传值
-    wx.navigateTo({
-      url: "service/service?type=https://jyzd.sdyu.edu.cn"
-    })
-  },
+  //跳转到学校简介
   toSchool: function (e) {
-    // 跳转并传值
     wx.navigateTo({
       url: "../mine/school/school"
     })
   },
 
-
-  service: function (e) {
-    // 跳转并传值
-    wx.navigateTo({
-      url: "service/service?type=http://jw.sdyu.edu.cn"
+  //复制网址到粘贴板
+  copy: function (e) {
+    var src = e.currentTarget.dataset.src;
+    wx.setClipboardData({
+      data: src,
+      success(res) {
+        wx.getClipboardData({
+          success(res) {
+            // console.log(res.data) 
+          }
+        })
+      }
     })
   },
-  library: function (e) {
-    // 跳转并传值
-    wx.navigateTo({
-      url: "service/service?type=https://lib.sdyu.edu.cn"
-    })
-  },
-
-
+  
+  //餐饮模块跳转
   south1: function (e) {
     // 跳转并传值
     wx.navigateTo({

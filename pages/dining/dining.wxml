@@ -1,21 +1,9 @@
 <!--轮播图-->
 <swiper class='lunbo' indicator-dots='true' autoplay='true' interval='4000'>
-	<swiper-item>
-		<image src='https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'></image>
-	</swiper-item>
-	<swiper-item>
-		<image src='https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'></image>
-	</swiper-item>
-	<swiper-item>
-		<image src='https://file.moetu.org/images/2020/03/26/ab50f54dcc833eecf.jpg'></image>
+	<swiper-item wx:for="{{4}}" wx:key='index'>
+		<image src="cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/dining/swiper/{{index+1}}.jpg"></image>
 	</swiper-item>
 </swiper>
-<view>{{type}}</view>
-<!-- <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-	<swiper-item wx:for="{{4}}" wx:key>
-		<image src="https://image.weilanwl.com/img/4x3-{{index+1}}.jpg" mode='aspectFill'></image>
-  </swiper-item>
-</swiper> -->
 
 <view class="cu-bar bg-white">
 	<view class="action">
@@ -44,10 +32,8 @@
 			<view wx:for="{{item.food}}" wx:key="id">
 				<view class="cu-list menu-avatar" id="1">
 					<view class="cu-item">
-						<!-- <view> -->
-							<image src="cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/dining/food.jpg" class="cu-avatar round lg"></image>
-						<!-- style="background-image:url(https://file.moetu.org/images/2020/03/27/timgc311cb1674a4fb47.th.jpg);"> -->
-						<!-- </view> -->
+						<image src="cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/dining/food.jpg"
+							class="cu-avatar round lg"></image>
 						<view class="content">
 							<view class="text-grey text-fname">{{item.fname}}</view>
 							<view class="text-gray text-sm flex">
@@ -57,7 +43,6 @@
 						<view class="action">
 							<view class="text-grey text-sm">价格：</view>
 							<view class='cu-tag line-green'>{{item.price}}元</view>
-							<!-- <view class="cu-tag radius">{{item.price}}元</view>  -->
 						</view>
 					</view>
 				</view>

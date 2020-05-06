@@ -3,7 +3,6 @@
 	<map id="map" longitude="{{longitude}}" latitude=" {{latitude}}" markers="{{markers}}" scale="16"
 		style="width: 100%; height: 100%;"></map>
 </view>
-<!-- <button plain="default" bindtap="location">获取当前位置/学校位置</button> -->
 
 <view class="cu-bar bg-white">
 	<view class='action'>
@@ -12,16 +11,13 @@
 </view>
 
 <view class="cu-card article" wx:for="{{news}}" wx:key="id">
-	<view class="cu-item shadow bg-gray solid">
-		<view class="title">
-			<view class="text-cut">{{item.news_title}}</view>
-		</view>
+	<view class="cu-item shadow bg-gray solid  padding-top" hover-class="animation-rotate">
 		<view class="content">
-			<image src="{{item.news_img}}" mode="aspectFill"></image>
-			<view class="desc">
-				<view class="text-xs">{{item.news_content}}</view>
+			<image src="{{item.image}}" data-src='{{item.image}}' bindtap='previewImg' mode="aspectFill"></image>
+			<view class="desc  padding-top">
+				<view class="">{{item.title}}</view>
 				<view class="flex justify-end">
-					<view class="cu-tag bg-gray sm round ">{{item.news_time}}</view>
+					<view class="cu-tag bg-gray sm round ">{{item.passtime}}</view>
 				</view>
 			</view>
 		</view>

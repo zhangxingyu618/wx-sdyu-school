@@ -1,31 +1,26 @@
 var bmap = require('../../libs/bmap-wx.min');
 
+
 Page({
   data: {
     cardCur: 0,
     swiperList: [{
       id: 0,
-      type: 'image',
       url: 'cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/index/swiper/1.jpg'
     }, {
       id: 1,
-      type: 'image',
       url: 'cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/index/swiper/2.jpg',
     }, {
       id: 2,
-      type: 'image',
       url: 'cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/index/swiper/3.jpg'
     }, {
       id: 3,
-      type: 'image',
       url: 'cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/index/swiper/4.jpg'
     }, {
       id: 4,
-      type: 'image',
       url: 'cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/index/swiper/5.jpg'
     }, {
       id: 5,
-      type: 'image',
       url: 'cloud://zhangxingyu-7t0za.7a68-zhangxingyu-7t0za-1301674488/index/swiper/6.jpg'
     }],
     tq: '', //天气情况
@@ -33,11 +28,14 @@ Page({
     c: "", //城市
     day: '', //日期及实时温度
     msg: [],
+    yiyan: []
 
   },
   onLoad() {
-    this.towerSwiper('swiperList');
+    //初始化音频
+    this.audioCtx = wx.createAudioContext('english')
     // 初始化towerSwiper 传已有的数组名即可
+    this.towerSwiper('swiperList');
     //显示当前页面可转发分享
     wx.showShareMenu({
       withShareTicket: true
@@ -45,19 +43,13 @@ Page({
     //接口调用
     var that = this;
     wx.request({
-      url: 'https://meiriyikan.cn/api/json.php',
-      method: 'POST', //方法分GET和POST
-      header: { //定死的格式，不用改，照敲就好
+      url: 'https://open.iciba.com/dsapi/',
+      header: {
         'Content-Type': 'application/json'
       },
       data: {},
       success: function (res) {
-        // console.log(res);
-        // console.log(res.data.news)
-        // json格式转换
-        // var obj = JSON.parse(data);
-        //  var dataObj = eval("("+data+")");//转换为json对象
-        // var json = (new Function("return " + data))();
+        // console.log(res.data)
         that.setData({
           msg: res.data,
         })
@@ -66,6 +58,10 @@ Page({
         console.log('.........fail..........');
       }
     })
+
+    this.yiyan()
+
+
     //天气
     var that = this;
     // 新建百度地图对象 
@@ -77,20 +73,14 @@ Page({
     };
     var success = function (data) {
       var weatherData = data.currentWeather[0];
-      //天气描述
       that.setData({
-        tq: weatherData.weatherDesc
-      });
-      //温度
-      that.setData({
-        t: weatherData.temperature
-      });
-      //城市
-      that.setData({
-        c: weatherData.currentCity
-      });
-      //日期
-      that.setData({
+        //天气描述
+        tq: weatherData.weatherDesc,
+        //温度
+        t: weatherData.temperature,
+        //城市
+        c: weatherData.currentCity,
+        //日期
         day: weatherData.date
       });
     }
@@ -100,9 +90,44 @@ Page({
       success: success
     });
 
-
-
   },
+  //一言接口
+  yiyan: function () {
+    var that = this;
+    wx.request({
+      url: 'https://v1.hitokoto.cn',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      data: {},
+      success: function (res) {
+        // console.log(res.data)
+        that.setData({
+          yiyan: res.data,
+        })
+      },
+      fail: function (res) {
+        console.log('.........接口调用失败..........');
+      }
+    })
+  },
+
+  // 播放音频
+  audioPlay: function () {
+    this.audioCtx.play()
+  },
+
+  // 点击图片放大
+  previewImg: function (e) {
+    // console.log(e.currentTarget.dataset.src);
+    var src = e.currentTarget.dataset.src;
+    wx.previewImage({
+      current: src, //当前图片地址
+      urls: [src], //所有要预览的图片的地址集合 数组形式
+    })
+  },
+
+
 
   // cardSwiper
   cardSwiper(e) {

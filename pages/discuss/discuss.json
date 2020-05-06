@@ -1,6 +1,8 @@
 {
   "usingComponents": {},
+  "enablePullDownRefresh": true,
   "navigationBarTitleText":"校友动态",
+  "backgroundColor": "#E8F4D9",
   "navigationBarBackgroundColor": "#E8F4D9",
   "onReachBottomDistance":10
 }

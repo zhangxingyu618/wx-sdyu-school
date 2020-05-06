@@ -18,6 +18,29 @@
     animation-timing-function: ease-out;
     animation-fill-mode: both
 }
+/* 自写的动画 */
+/* 旋转 */
+.animation-turn {
+    animation-name: turn
+}
+@keyframes turn {
+    0% {transform: rotate(0deg);}
+  50% {transform: rotate(200deg);}
+  100% {transform: rotate(360deg);}
+}
+/* 左右晃动 */
+.animation-rotate {
+    animation-name: rotate ;
+}
+@keyframes rotate {
+    10% {transform: rotate(10deg);}
+    20% { transform: rotate(15deg);}
+    40% {transform: rotate(-10deg);}
+    60% {transform: rotate(5deg);}
+    80% {transform: rotate(-5deg);}
+    100% {transform: rotate(0deg);}
+}
+
 
 .animation-fade {
     animation-name: fade;
@@ -56,6 +79,7 @@
 .animation-reverse {
     animation-direction: reverse
 }
+
 
 @keyframes fade {
     0% {

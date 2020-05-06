@@ -7,17 +7,23 @@
             <text class=" text-green text-shadow">请文明发言（可闲聊、表白、寻物、求助）</text>
         </view>
     </view>
+
     <!--动态模块-->
     <!-- 新建动态的按钮 -->
-    <view class="text-sl location-refresh radius text-grey" hover-class="animation-fade" bindtap="refresh">
+    <view class="text-sl location-refresh radius text-grey" hover-class="animation-turn" bindtap="refresh">
         <text class="cuIcon-refresh"></text>
     </view>
-    <view class="text-sl location-add radius text-grey" hover-class="animation-scale-up" bindtap="add">
+    <view class="text-sl location-add radius text-grey" hover-class="animation-turn" bindtap="add">
         <text class="cuIcon-roundaddfill "></text>
     </view>
 
-    <view class="cu-card dynamic light bg-olive" wx:for="{{discuss}}" wx:key="id">
+    <view class="cu-card dynamic light bg-olive" wx:for="{{discuss}}" wx:key="_id">
         <view class="cu-item shadow solids bg-gray padding-bottom" hover-class="animation-rotate">
+            <!-- 删除 -->
+            <view wx:if="{{item.head==userInfo.avatarUrl}}" class="fr padding text-xxl bg-white" data-id="{{item._id}}"
+                data-src="{{item.fileID}}" bindtap="delete">
+                <text class="cuIcon-more text-gray text-shadow"></text>
+            </view>
             <view class="cu-list menu-avatar">
                 <view class="cu-item">
                     <image class="cu-avatar round lg" src="{{item.head}}"></image>
@@ -28,6 +34,7 @@
                         </view>
                     </view>
                 </view>
+
             </view>
             <view class="text-content">
                 {{item.msg}}
@@ -59,8 +66,7 @@
         </view>
     </view>
 
-
-    <view class="cu-load light bg-olive loading" hidden='{{isShowLoadmore}}'> </view>
-    <view class="cu-load light bg-olive over" hidden='{{!isShowLoadmore}}'> </view>
+    <view wx:if="{{hasMore}}" class="cu-load light bg-olive loading"> </view>
+    <view wx:else class="cu-load light bg-olive over"> </view>
 
 </block>

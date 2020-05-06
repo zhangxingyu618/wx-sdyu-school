@@ -1,3 +1,0 @@
-<!--pages/list/service/service.wxml-->
-
-<web-view src="{{type}}"></web-view>

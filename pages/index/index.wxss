@@ -1,17 +1,7 @@
-.lunbo {
-  width: 100%;
-  height: 300rpx;
-}
-
-.lunbo image {
-  width: 100%;
-  height: 100%;
-}
 
 image {
   width: 100%;
 }
-
 
 .tower-swiper .tower-item {
   transform: scale(calc(0.5 + var(--index) / 10));

@@ -20,7 +20,6 @@ Page({
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true,
-
         })
       }
     } else {
@@ -35,6 +34,7 @@ Page({
         }
       })
     }
+    // console.log(this.data.userInfo)
   },
   getUserInfo: function (e) {
     console.log(e)
@@ -48,28 +48,19 @@ Page({
   //跳转关于反馈页面
   opinion: function (e) {
     wx.navigateTo({
-        url: "opinion/opinion"
-      }),
-      this.setData({
-        // message: '跳转成功'
-      })
+      url: "opinion/opinion"
+    })
   },
   //跳转关于山青院页面
   toSchool: function (e) {
     wx.navigateTo({
-        url: "school/school"
-      }),
-      this.setData({
-        // message: '跳转成功'
-      })
+      url: "school/school"
+    })
   },
   //跳转关于我们页面
   about: function (e) {
     wx.navigateTo({
-        url: "about/about"
-      }),
-      this.setData({
-        // message: '跳转成功'
-      })
+      url: "about/about"
+    })
   },
 })

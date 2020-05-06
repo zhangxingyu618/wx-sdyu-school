@@ -1,16 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/news/news",
     "pages/talk/talk",
     "pages/discuss/discuss",
     "pages/discuss/message/message",
     "pages/list/list",
-    "pages/list/service/service",
     "pages/dining/dining",
     "pages/mine/mine",
     "pages/mine/about/about",
-    "pages/mine/opinion/opinion",
     "pages/mine/school/school"
   ],
   "permission": {
@@ -24,7 +21,6 @@
     "color": "#006835",
     "backgroundColor": "#eeeeee",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true,
     "backgroundTextStyle":"dark"
   },
   "style": "v2",

@@ -9,8 +9,7 @@
 	duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
 	<swiper-item wx:for="{{swiperList}}" wx:key="id" class="{{cardCur==index?'cur':''}}">
 		<view class="swiper-item">
-			<image src="{{item.url}}" wx:if="{{item.type=='image'}}"></image>
-			<!-- <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video> -->
+			<image src="{{item.url}}"></image>
 		</view>
 	</swiper-item>
 </swiper>
@@ -23,67 +22,43 @@
 	</view>
 </view>
 
-
+<view class="cu-card article">
+	<view class="cu-item shadow bg-gray solid padding" hover-class="animation-rotate">
+		<view class="cu-tag light bg-blue round">今日英语</view>
+		<view class="flex padding-top">
+			<image src="{{msg.fenxiang_img}}" data-src='{{msg.fenxiang_img}}' bindtap='previewImg' mode="widthFix">
+			</image>
+			<view class="desc padding-left-sm">
+				<view class="text-bold padding-bottom-xs" hover-class="animation-fade" bindtap="audioPlay">
+					{{msg.content}}
+					<text class="text-xxl cuIcon-notification text-green text-shadow"></text>
+				</view>
+				<view class="text-content"> {{msg.note}}</view>
+			</view>
+		</view>
+	</view>
+</view>
+<audio hidden src="{{msg.tts}}" id="english" bindplay="audioPlay"></audio>
 
 <view class="cu-card case">
-	<view class="cu-item shadow bg-gray solid padding">
-		<view class="cu-tag light bg-blue round">每日一图</view>
+	<view class="cu-item shadow bg-gray solid padding text-xl" hover-class="animation-rotate">
+		<view class=" fr text-xl" hover-class="animation-turn" hover-class="animation-turn">
+			<text class="cuIcon-refresh text-green fr" bindtap="yiyan"></text>
+		</view>
+		<view class="cu-tag light bg-green round ">短句推荐</view>
+		<view class="padding-top text-xl flex justify-center">{{yiyan.hitokoto}}</view>
+		<view class="padding-top text-df flex justify-end">
+			<view class="">—— <text wx:if="{{yiyan.from_who!=null}}">{{yiyan.from_who}}</text>「{{yiyan.from}}」</view>
+		</view>
+	</view>
+</view>
+
+<view class="cu-card case">
+	<view class="cu-item shadow bg-gray solid padding" hover-class="animation-rotate">
+		<view class="cu-tag light bg-cyan round">今日一图</view>
 		<view class="image padding-top">
-			<image class="radius" src="{{msg.img_url}}" mode="widthFix"></image>
-			<view class="cu-bar bg-shadeBottom radius">
-				<text wx:if="{{msg.img_title!=''}}" class="text-cut">{{msg.img_title}}</text>
-			</view>
+			<image class="radius" src="{{msg.picture2}}" data-src='{{msg.picture2}}' bindtap='previewImg'
+				mode="widthFix"></image>
 		</view>
 	</view>
 </view>
-
-<view class="cu-card case">
-	<view class="cu-item shadow bg-gray solid padding">
-		<view class="cu-tag light bg-cyan round ">每日一句</view>
-		<view class="padding-top text-xl">{{msg.yiyu}}</view>
-	</view>
-</view>
-
-<view class="cu-card case">
-	<view class="cu-item shadow bg-gray solid padding">
-		<view class="cu-tag light bg-green round ">微小说</view>
-		<view class="padding-top text-xl">{{msg.wxs}}</view>
-	</view>
-</view>
-
-
-<!-- <view class="cu-timeline margin-right-sm margin-left-sm">
-	<view class="cu-time">3-30</view>
-	<view class="cu-item text-blue">
-		<view class="content">
-			<view class="cu-capsule radius">
-				<view class="cu-tag bg-cyan">上午</view>
-				<view class="cu-tag line-cyan">10:00</view>
-			</view>
-			<view class="margin-top">山东青年政治学院，创建于1949年，是经国家教育部批准设立的公办全日制普通本科高校，学校是中国共产主义青年团命名的“全国团干部教育培训基地”。
-			</view>
-		</view>
-	</view>
-	<view class="cu-time">3-30</view>
-	<view class="cu-item  text-blue">
-		<view class="content">
-			<view class="cu-capsule radius">
-				<view class="cu-tag bg-cyan">上午</view>
-				<view class="cu-tag line-cyan">10:00</view>
-			</view>
-			<view class="margin-top">山东青年政治学院，创建于1949年，是经国家教育部批准设立的公办全日制普通本科高校，学校是中国共产主义青年团命名的“全国团干部教育培训基地”。
-			</view>
-		</view>
-	</view>
-	<view class="cu-time">3-30</view>
-	<view class="cu-item  text-blue">
-		<view class="content">
-			<view class="cu-capsule radius">
-				<view class="cu-tag bg-cyan">上午</view>
-				<view class="cu-tag line-cyan">10:00</view>
-			</view>
-			<view class="margin-top">山东青年政治学院，创建于1949年，是经国家教育部批准设立的公办全日制普通本科高校，学校是中国共产主义青年团命名的“全国团干部教育培训基地”。
-			</view>
-		</view>
-	</view>
-</view> -->

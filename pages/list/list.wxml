@@ -5,22 +5,22 @@
 </view>
 
 <view class="cu-list grid col-5 no-border">
-	<view class="cu-item" bindtap="home">
+	<view class="cu-item" data-src='https://www.sdyu.edu.cn' bindtap='copy'>
 		<view class="cuIcon-home text-blue">
 		</view>
 		<text>学校官网</text>
 	</view>
-	<view class="cu-item" bindtap="jwchome">
+	<view class="cu-item" data-src='https://jwc.sdyu.edu.cn' bindtap='copy'>
 		<view class="cuIcon-calendar text-purple">
 		</view>
 		<text>教务处</text>
 	</view>
-	<view class="cu-item" bindtap="zshome">
+	<view class="cu-item" data-src='https://zsb.sdyu.edu.cn' bindtap='copy'>
 		<view class="cuIcon-new text-pink">
 		</view>
 		<text>招生信息</text>
 	</view>
-	<view class="cu-item" bindtap="jyhome">
+	<view class="cu-item" data-src='https://jyzd.sdyu.edu.cn' bindtap='copy'>
 		<view class="cuIcon-command text-mauve">
 		</view>
 		<text>就业创业</text>
@@ -37,27 +37,27 @@
 	</view>
 </view>
 <view class="cu-list grid col-5 no-border">
-	<view class="cu-item" bindtap="service">
+	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy'>
 		<view class="cuIcon-text text-red">
 		</view>
 		<text>课表查询</text>
 	</view>
-	<view class="cu-item" bindtap="service">
+	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy'>
 		<view class="cuIcon-rank text-orange">
 		</view>
 		<text>成绩查询</text>
 	</view>
-	<view class="cu-item" bindtap="service">
+	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy'>
 		<view class="cuIcon-form text-yellow">
 		</view>
 		<text>考试查询</text>
 	</view>
-	<view class="cu-item" bindtap="service">
+	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy'>
 		<view class="cuIcon-selection text-green">
 		</view>
 		<text>自主选课</text>
 	</view>
-	<view class="cu-item" bindtap="library">
+	<view class="cu-item" data-src='https://lib.sdyu.edu.cn' bindtap='copy'>
 		<view class="cuIcon-read text-olive">
 		</view>
 		<text>图书馆</text>
@@ -71,37 +71,37 @@
 </view>
 
 <view class="grid col-2 padding-sm">
-	<view class="padding-sm" bindtap="south1" hover-class="animation-fade">
+	<view class="padding-sm" bindtap="south1" hover-class="animation-rotate">
 		<view class="bg-gradual-red padding radius text-center shadow-blur">
 			<view class="text-lg">南苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（一楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm" bindtap="south2" hover-class="animation-fade">
+	<view class="padding-sm" bindtap="south2" hover-class="animation-rotate">
 		<view class="bg-gradual-orange padding radius text-center shadow-blur">
 			<view class="text-lg">南苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（二楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm" bindtap="north1" hover-class="animation-fade">
+	<view class="padding-sm" bindtap="north1" hover-class="animation-rotate">
 		<view class="bg-gradual-green padding radius text-center shadow-blur">
 			<view class="text-lg">北苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（一楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm" bindtap="north2" hover-class="animation-fade">
+	<view class="padding-sm" bindtap="north2" hover-class="animation-rotate">
 		<view class="bg-gradual-purple padding radius text-center shadow-blur">
 			<view class="text-lg">北苑餐厅</view>
 			<view class="margin-top-sm text-Abc">（二楼）</view>
 		</view>
 	</view>
-	<view class="padding-sm" bindtap="snack" hover-class="animation-fade">
+	<view class="padding-sm" bindtap="snack" hover-class="animation-rotate">
 		<view class="bg-gradual-blue padding radius text-center shadow-blur">
 			<view class="text-lg">各种小吃</view>
 			<view class="margin-top-sm text-Abc">（快餐简餐）</view>
 		</view>
 	</view>
-	<view class="padding-sm" bindtap="drink" hover-class="animation-fade">
+	<view class="padding-sm" bindtap="drink" hover-class="animation-rotate">
 		<view class="bg-gradual-pink padding radius text-center shadow-blur">
 			<view class="text-lg">喝个够</view>
 			<view class="margin-top-sm text-Abc">（奶茶饮品）</view>

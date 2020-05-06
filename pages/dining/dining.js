@@ -1,4 +1,7 @@
 const app = getApp()
+// 初始化云 创建数据库实例
+wx.cloud.init()
+const db = wx.cloud.database()
 
 Page({
   data: {
@@ -10,8 +13,7 @@ Page({
     VerticalNavTop: 0,
     list: [],
     load: true,
-    // type: "",
-    name:'',
+    name: '',
     wname: [],
 
   },
@@ -23,18 +25,10 @@ Page({
     });
     // 获取页面传值
     this.setData({
-        name: options.name,
-      });
-      
-      // console.log(options.type)
-      // console.log("=================")
-      // console.log(options.name)
-    // 初始化云
-    wx.cloud.init()
-    // 创建数据库实例
-    const db = wx.cloud.database()
-    // 构造查询语句
-    // collection 方法获取一个数据集合的引用
+      name: options.name,
+    });
+    // console.log(options.name)
+
     // 用上一个页面传递过来的值
     db.collection(options.type).get({
       success: res => {
@@ -42,18 +36,13 @@ Page({
           wname: res.data[0].newslist
         })
         // console.log(res)
-        // console.log("---------------")   
       }
-
     });
-
-
+    // 列表抽屉
     let list = [{}];
     for (let i = 0; i < 26; i++) {
       list[i] = {};
       list[i].id = i;
-      // list[i].name = String(i + 1);
-      // list[i].name = String.fromCharCode(65 + i);
     }
     this.setData({
       list: list,
