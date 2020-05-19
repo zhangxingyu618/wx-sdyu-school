@@ -1,7 +1,14 @@
-
 image {
   width: 100%;
 }
+
+/* .title{
+  width: 100%;
+  word-wrap: break-word;
+  word-break: break-all;
+  line-height: 0rpx;
+  white-space: pre-line; 
+} */
 
 .tower-swiper .tower-item {
   transform: scale(calc(0.5 + var(--index) / 10));

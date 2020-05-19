@@ -10,6 +10,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    openid: '',
     discuss: {},
     hasMore: true,
     pageNum: 5, //每页数据量
@@ -42,8 +43,24 @@ Page({
         }
       })
     }
+    //获取用户的openid
+    this.getOpenid()
     //第一次加载数据库中的值
     this.load()
+  },
+  // 定义调用云函数获取openid
+  getOpenid() {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'getOpenid',
+      complete: res => {
+        // console.log( res.result)
+        var openid = res.result.openid
+        that.setData({
+          openid: openid
+        })
+      }
+    })
   },
   // 第一次加载数据库数据
   load: function () {
@@ -144,9 +161,6 @@ Page({
           }
         })
       },
-      fail(res) {
-        console.log("----删除失败-----")
-      }
     })
   },
 

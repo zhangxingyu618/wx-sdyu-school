@@ -6,12 +6,20 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    // 云开发初始化
+    wx.cloud.init({
+      env: "zhangxingyu-7t0za",
+      traceUser: true
+    })
+
+
     // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -30,6 +38,21 @@ App({
             }
           })
         }
+      }
+    })
+  },
+  // 获取用户openid
+  getOpenid() {
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'getOpenid',
+      complete: res => {
+        console.log('openid: ', res.result.openid)
+        console.log('appid: ', res.result.appid)
+        // var openid = res.result.openId;
+        // that.setData({
+        //   openid: openid
+        // })
       }
     })
   },

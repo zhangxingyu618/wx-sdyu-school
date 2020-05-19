@@ -20,7 +20,7 @@
     <view class="cu-card dynamic light bg-olive" wx:for="{{discuss}}" wx:key="_id">
         <view class="cu-item shadow solids bg-gray padding-bottom" hover-class="animation-rotate">
             <!-- 删除 -->
-            <view wx:if="{{item.head==userInfo.avatarUrl}}" class="fr padding text-xxl bg-white" data-id="{{item._id}}"
+            <view wx:if="{{item._openid==openid}}" class="fr padding text-xxl bg-white" data-id="{{item._id}}"
                 data-src="{{item.fileID}}" bindtap="delete">
                 <text class="cuIcon-more text-gray text-shadow"></text>
             </view>

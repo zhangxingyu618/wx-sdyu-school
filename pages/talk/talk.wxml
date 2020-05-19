@@ -10,16 +10,47 @@
 	</view>
 </view>
 
+
+<view class="bg-white nav">
+	<!-- 导航栏 -->
+	<view class="flex text-center">
+		<block wx:for="{{navbarTitle}}" wx:key="index">
+			<view class="cu-item flex-sub {{navbarActiveIndex === index ? 'text-orange cur' : ''}}"
+				data-navbar-index="{{index}}" catchtap="onNavBarTap">
+				<text>{{item}}</text>
+			</view>
+		</block>
+	</view>
+</view>
+
 <view class="cu-card article" wx:for="{{news}}" wx:key="id">
 	<view class="cu-item shadow bg-gray solid  padding-top" hover-class="animation-rotate">
 		<view class="content">
-			<image src="{{item.image}}" data-src='{{item.image}}' bindtap='previewImg' mode="aspectFill"></image>
-			<view class="desc  padding-top">
+			<image  wx:if="{{item.headpic!=''}}" src="{{item.headpic}}" data-src='{{item.headpic}}' bindtap='previewImg' mode="aspectFill" binderror="errImg"></image>
+			<view class="desc  padding-top"  data-description='{{item.description}}' bindtap='description'>
 				<view class="">{{item.title}}</view>
 				<view class="flex justify-end">
-					<view class="cu-tag bg-gray sm round ">{{item.passtime}}</view>
+					<view class="cu-tag bg-gray sm round ">{{item.source}}</view>
 				</view>
 			</view>
 		</view>
 	</view>
 </view>
+
+
+
+
+
+<!-- <view class="cu-card article" wx:for="{{news}}" wx:key="id">
+	<view class="cu-item shadow bg-gray solid  padding-top" hover-class="animation-rotate">
+		<view class="content">
+			<image src="{{item.headpic}}" data-src='{{item.image}}' bindtap='previewImg' mode="aspectFill"></image>
+			<view class="desc  padding-top">
+				<view class="">{{item.title}}</view>
+				<view class="flex justify-end">
+					<view class="cu-tag bg-gray sm round ">{{item.source}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</view> -->

@@ -14,7 +14,6 @@
 	</swiper-item>
 </swiper>
 
-
 <view class="cu-bar bg-white">
 	<view class="action">
 		<text class="cuIcon-locationfill text-green text-shadow"></text>
@@ -25,15 +24,17 @@
 <view class="cu-card article">
 	<view class="cu-item shadow bg-gray solid padding" hover-class="animation-rotate">
 		<view class="cu-tag light bg-blue round">今日英语</view>
-		<view class="flex padding-top">
+		<view class=" padding-top">
 			<image src="{{msg.fenxiang_img}}" data-src='{{msg.fenxiang_img}}' bindtap='previewImg' mode="widthFix">
 			</image>
 			<view class="desc padding-left-sm">
-				<view class="text-bold padding-bottom-xs" hover-class="animation-fade" bindtap="audioPlay">
-					{{msg.content}}
+				<view class="text-bold padding-bottom-xs " hover-class="animation-fade" bindtap="audioPlay">
+					<view class="text-df">
+						{{msg.content}}
+					</view>
 					<text class="text-xxl cuIcon-notification text-green text-shadow"></text>
 				</view>
-				<view class="text-content"> {{msg.note}}</view>
+				<view class="text-content">{{msg.note}}</view>
 			</view>
 		</view>
 	</view>
