@@ -44,13 +44,6 @@ Page({
       hasUserInfo: true
     })
   },
-
-  //跳转关于反馈页面
-  opinion: function (e) {
-    wx.navigateTo({
-      url: "opinion/opinion"
-    })
-  },
   //跳转关于山青院页面
   toSchool: function (e) {
     wx.navigateTo({

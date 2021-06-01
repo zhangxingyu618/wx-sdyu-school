@@ -30,9 +30,8 @@
 			<view class="desc padding-left-sm">
 				<view class="text-bold padding-bottom-xs " hover-class="animation-fade" bindtap="audioPlay">
 					<view class="text-df">
-						{{msg.content}}
+						{{msg.content}} <text class="text-xxl cuIcon-notification text-green text-shadow"></text>
 					</view>
-					<text class="text-xxl cuIcon-notification text-green text-shadow"></text>
 				</view>
 				<view class="text-content">{{msg.note}}</view>
 			</view>

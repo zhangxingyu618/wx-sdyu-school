@@ -9,10 +9,10 @@ Page({
     }],
     navbarActiveIndex: 0,
     navbarTitle: [
-      "国际",
+      "头条",
       "科技",
-      "体育",
       "军事",
+      "体育",
       "财经",
       "娱乐",
     ],
@@ -23,27 +23,26 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
-    this.getNews(5)
-    setTimeout(function () {
-      wx.hideLoading()
-    }, 1000)
+    this.getNews('T1348647853363')
+    
   },
   //获取新闻
   getNews: function (e) {
     var that = this;
     wx.request({
-      url: 'https://www.jsanai.com/api/selfnews/newslist',
+      // url: 'https://www.jsanai.com/api/selfnews/newslist',
+      url: 'https://c.m.163.com/nc/article/headline/'+e+'/0-20.html',
       // method: 'POST', //分GET和POST
       header: {
         'Content-Type': 'application/json'
       },
       data: {
-        type: e
+      
       },
       success: function (res) {
-        // console.log(res.data.data)
+        // console.log(res.data[e])
         that.setData({
-          news: res.data.data,
+          news:res.data[e]
         })
       },
       fail: function (res) {
@@ -62,12 +61,12 @@ Page({
   },
   // 点击新闻详情
   description: function (e) {
-    var description = e.currentTarget.dataset.description;
+    var digest = e.currentTarget.dataset.digest;
     // console.log(e);
-    if (description != '') {
+    if (digest != '') {
       wx.showModal({
         title: '详情',
-        content: description,
+        content: digest+'...',
         showCancel: false,
       })
     }
@@ -85,27 +84,29 @@ Page({
     // console.log(this.data.navbarActiveIndex)
     switch (this.data.navbarActiveIndex) {
       case 0:
-        this.getNews(5)
+        this.getNews('T1348647853363')
         break;
       case 1:
-        this.getNews(1)
+        this.getNews('T1348649580692')
         break;
       case 2:
-        this.getNews(3)
+        this.getNews('T1348648141035')
         break;
       case 3:
-        this.getNews(7)
+        this.getNews('T1348649079062')
         break;
       case 4:
-        this.getNews(2)
+        this.getNews('T1348648756099')
         break;
       case 5:
-        this.getNews(4)
+        this.getNews('T1348648517839')
         break;
     }
   },
 
 
 
-  onReady: function () {},
+  onReady: function () {
+    wx.hideLoading()
+  },
 })

@@ -5,27 +5,27 @@
 </view>
 
 <view class="cu-list grid col-5 no-border">
-	<view class="cu-item" data-src='https://www.sdyu.edu.cn' bindtap='copy'>
+	<view class="cu-item" data-src='https://www.sdyu.edu.cn' bindtap='copy' hover-class="animation-fade">
 		<view class="cuIcon-home text-blue">
 		</view>
 		<text>学校官网</text>
 	</view>
-	<view class="cu-item" data-src='https://jwc.sdyu.edu.cn' bindtap='copy'>
+	<view class="cu-item" data-src='https://jwc.sdyu.edu.cn' bindtap='copy' hover-class="animation-fade">
 		<view class="cuIcon-calendar text-purple">
 		</view>
 		<text>教务处</text>
 	</view>
-	<view class="cu-item" data-src='https://zsb.sdyu.edu.cn' bindtap='copy'>
+	<view class="cu-item" data-src='https://zsb.sdyu.edu.cn' bindtap='copy' hover-class="animation-fade">
 		<view class="cuIcon-new text-pink">
 		</view>
 		<text>招生信息</text>
 	</view>
-	<view class="cu-item" data-src='https://jyzd.sdyu.edu.cn' bindtap='copy'>
+	<view class="cu-item" data-src='https://jyzd.sdyu.edu.cn' bindtap='copy' hover-class="animation-fade">
 		<view class="cuIcon-command text-mauve">
 		</view>
 		<text>就业创业</text>
 	</view>
-	<view class="cu-item" bindtap="toSchool">
+	<view class="cu-item" bindtap="toSchool" hover-class="animation-fade">
 		<view class="cuIcon-punch text-cyan">
 		</view>
 		<text>学校简介</text>
@@ -37,27 +37,27 @@
 	</view>
 </view>
 <view class="cu-list grid col-5 no-border">
-	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy'>
+	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy' hover-class="animation-fade">
 		<view class="cuIcon-text text-red">
 		</view>
 		<text>课表查询</text>
 	</view>
-	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy'>
+	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy' hover-class="animation-fade">
 		<view class="cuIcon-rank text-orange">
 		</view>
 		<text>成绩查询</text>
 	</view>
-	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy'>
+	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy' hover-class="animation-fade">
 		<view class="cuIcon-form text-yellow">
 		</view>
 		<text>考试查询</text>
 	</view>
-	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy'>
+	<view class="cu-item" data-src='http://jw.sdyu.edu.cn' bindtap='copy' hover-class="animation-fade">
 		<view class="cuIcon-selection text-green">
 		</view>
 		<text>自主选课</text>
 	</view>
-	<view class="cu-item" data-src='https://lib.sdyu.edu.cn' bindtap='copy'>
+	<view class="cu-item" data-src='https://lib.sdyu.edu.cn' bindtap='copy' hover-class="animation-fade">
 		<view class="cuIcon-read text-olive">
 		</view>
 		<text>图书馆</text>
